@@ -11,7 +11,6 @@ public class AnimatedBackground : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		renderer.material.mainTexture.wrapMode = TextureWrapMode.Repeat;
 	}
 	
 	// Update is called once per frame
