@@ -14,8 +14,7 @@ public class PlayerStats : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		EquippedWeapon = GameObject.Instantiate (EquippedWeapon, this.transform.position, Quaternion.identity) as GameObject;
-		EquippedWeapon.transform.parent = gameObject.transform;
+		ChangeWeapon (EquippedWeapon);
 	}
 	
 	// Update is called once per frame
@@ -27,5 +26,11 @@ public class PlayerStats : MonoBehaviour {
 
 	void Die () {
 
+	}
+
+	public void ChangeWeapon (GameObject weapon) {
+		DestroyImmediate (EquippedWeapon, false);
+		EquippedWeapon = GameObject.Instantiate (weapon, this.transform.position, Quaternion.identity) as GameObject;
+		EquippedWeapon.transform.parent = gameObject.transform;
 	}
 }

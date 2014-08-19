@@ -18,7 +18,7 @@ public class Projectile : MonoBehaviour {
 	
 	}
 
-	public void GetPosition (){
+	public void GetPosition () {
 		movement = transform.position;
 	}
 
@@ -33,5 +33,10 @@ public class Projectile : MonoBehaviour {
 
 	public void StrafeUp () {
 		movement += new Vector3 (0, Speed, 0);
+	}
+
+	void OnTriggerEnter2D (Collider2D coll) {
+		if (coll.gameObject.tag == "Enemy")
+			coll.gameObject.SendMessage ("ApplyDamage", Damage);
 	}
 }

@@ -40,4 +40,8 @@ public class Enemy : MonoBehaviour {
 	public void StrafeDown () {
 		movement += new Vector3 (0, -Speed, 0);
 	}
+
+	public void ApplyDamage (int damage) {
+		Health -= damage;
+	}
 }
