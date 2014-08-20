@@ -6,7 +6,9 @@ public class Weapon : MonoBehaviour {
 	public string Name;
 	public float Cooldown;
 
-	public Vector3 firingPosition;
+    [HideInInspector]
+	public Vector3 firingPosition, secondFiringPosition;
+
 	public Projectile projectile;
 
 	// Use this for initialization
