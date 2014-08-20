@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Pickup : MonoBehaviour {
+public class PickupWeapon : MonoBehaviour {
 
 	public string Category;
 	public GameObject weapon;
