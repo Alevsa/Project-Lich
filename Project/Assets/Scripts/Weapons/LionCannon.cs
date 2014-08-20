@@ -5,17 +5,16 @@ public class LionCannon : Weapon {
 
 	// Use this for initialization
 	void Start ()  {
-        
+		firingPosition = GameObject.Find("WeaponSlot1");	
 	}
 	
 	// Update is called once per frame
 	void Update () 
     {
-        firingPosition = GameObject.Find("WeaponSlot1").transform.position;
 	}
 
 	override public void Fire ()
 	{
-		Instantiate (projectile, firingPosition, Quaternion.identity);
+		Instantiate (projectile, firingPosition.transform.position, Quaternion.identity);
 	}
 }

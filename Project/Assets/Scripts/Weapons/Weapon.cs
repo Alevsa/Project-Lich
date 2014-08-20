@@ -7,7 +7,7 @@ public class Weapon : MonoBehaviour {
 	public float Cooldown;
 
     [HideInInspector]
-	public Vector3 firingPosition, secondFiringPosition;
+	public GameObject firingPosition;
 
 	public Projectile projectile;
 
