@@ -3,13 +3,11 @@ using System.Collections;
 
 public class Explosion : Projectile 
 {
-	// Use this for initialization
 	void Start () 
     {
 	
 	}
-	
-	// Update is called once per frame
+
 	void Update () 
     {
 	
