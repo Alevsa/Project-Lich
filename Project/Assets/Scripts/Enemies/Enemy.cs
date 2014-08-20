@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour {
 			Die ();
 
 		GetPosition ();
+		SetDestination ();
 		Move ();
 	}
 
@@ -31,6 +32,10 @@ public class Enemy : MonoBehaviour {
 	public void Move() {
 		float Length = Vector3.Distance (transform.position, movement);
 		transform.position = Vector3.Lerp (transform.position, movement, Time.deltaTime * Speed / Length);
+	}
+
+	public virtual void SetDestination () {
+		StrafeDown ();
 	}
 
 	public void Die () {
