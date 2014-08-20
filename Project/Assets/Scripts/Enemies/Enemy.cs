@@ -44,4 +44,12 @@ public class Enemy : MonoBehaviour {
 	public void ApplyDamage (int damage) {
 		Health -= damage;
 	}
+
+	public virtual void OnTriggerEnter2D (Collider2D coll) {
+		if (coll.gameObject.tag == "Player")
+		{
+			coll.gameObject.SendMessage("ApplyDamage", Health);
+			Die ();
+		}
+	}
 }

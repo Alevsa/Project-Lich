@@ -25,7 +25,8 @@ public class PlayerStats : MonoBehaviour {
 	}
 
 	void Die () {
-
+		Destroy (this.gameObject);
+		Application.Quit ();
 	}
 
 	public void ChangeWeapon (GameObject weapon) {
@@ -33,4 +34,9 @@ public class PlayerStats : MonoBehaviour {
 		EquippedWeapon = GameObject.Instantiate (weapon, this.transform.position, Quaternion.identity) as GameObject;
 		EquippedWeapon.transform.parent = gameObject.transform;
 	}
+
+	void ApplyDamage (int damage) {
+		Health -= damage;
+	}
+
 }

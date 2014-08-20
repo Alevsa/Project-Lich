@@ -35,7 +35,7 @@ public class Projectile : MonoBehaviour {
 		movement += new Vector3 (0, Speed, 0);
 	}
 
-	void OnTriggerEnter2D (Collider2D coll) {
+	public virtual void OnTriggerEnter2D (Collider2D coll) {
 		if (coll.gameObject.tag == "Enemy")
 			coll.gameObject.SendMessage ("ApplyDamage", Damage);
 	}
