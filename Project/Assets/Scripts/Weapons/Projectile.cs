@@ -36,10 +36,7 @@ public class Projectile : MonoBehaviour {
 	}
 
 	public virtual void OnTriggerEnter2D (Collider2D coll) {
-        if (coll.gameObject.tag == "Enemy")
-        {
-            coll.gameObject.SendMessage("ApplyDamage", Damage);
-            Die();
-        }
+		if (coll.gameObject.tag == "Enemy")
+			coll.gameObject.SendMessage ("ApplyDamage", Damage);
 	}
 }
