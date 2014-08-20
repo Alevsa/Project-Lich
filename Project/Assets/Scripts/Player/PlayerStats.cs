@@ -25,8 +25,36 @@ public class PlayerStats : MonoBehaviour {
 	}
 
 	void Die () {
+		if (Lives == 0) 
+		{
+			EndGame();
+		}
+
+		Lives--;
+		Respawn ();
+	}
+
+	void EndGame() {
 		Destroy (this.gameObject);
-		Application.Quit ();
+	}
+
+	void Respawn() {
+		this.transform.position = new Vector3 (this.transform.position.x, -4, -1);
+		Health = MaxHealth;
+		StartCoroutine (RespawnRoutine ());
+	}
+
+	IEnumerator RespawnRoutine()
+	{
+		SetInvulnerability (true);
+		yield return new WaitForSeconds(3.0f);
+		SetInvulnerability(false);
+	}
+
+	void SetInvulnerability (bool value)
+	{
+		invulnerable = value;
+		collider2D.enabled = !value;
 	}
 
 	public void ChangeWeapon (GameObject weapon) {
@@ -36,7 +64,8 @@ public class PlayerStats : MonoBehaviour {
 	}
 
 	void ApplyDamage (int damage) {
-		Health -= damage;
+		if (!invulnerable)
+			Health -= damage;
 	}
 
 }

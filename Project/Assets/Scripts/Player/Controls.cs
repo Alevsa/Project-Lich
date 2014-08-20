@@ -5,6 +5,7 @@ public class Controls : MonoBehaviour {
 	
 	public float speed;
 
+	private bool controlsEnabled = true;
 	private Vector3 movement;
 	private PlayerStats Stats;
 	private bool weaponOnCooldown;
@@ -16,7 +17,6 @@ public class Controls : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
 		GetPosition ();
 		GetInput ();
 		Move ();
@@ -32,6 +32,9 @@ public class Controls : MonoBehaviour {
 	}
 
 	void GetInput () {
+		if (!controlsEnabled)
+			return;
+
 		if (Input.GetKey (KeyCode.A))
 			StrafeLeft ();
 
@@ -71,6 +74,11 @@ public class Controls : MonoBehaviour {
 			weaponOnCooldown = true;
 			StartCoroutine(CoolingDown (Stats.EquippedWeapon.GetComponent<Weapon>().Cooldown));
 		}
+	}
+
+	public void MoveTowards(Vector3 destination)
+	{
+		movement = destination;
 	}
 
 	IEnumerator CoolingDown (float Cooldown) 
