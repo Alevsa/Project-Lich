@@ -46,6 +46,9 @@ public class Controls : MonoBehaviour {
 
 		if (Input.GetKey (KeyCode.Space))
 			FireButton ();
+
+		if (Input.GetKeyUp (KeyCode.Space))
+			StopFireButton ();
 	}
 
 	void StrafeLeft () {
@@ -71,6 +74,10 @@ public class Controls : MonoBehaviour {
 			weaponOnCooldown = true;
 			StartCoroutine(CoolingDown (Stats.EquippedWeapon.GetComponent<Weapon>().Cooldown));
 		}
+	}
+
+	void StopFireButton() {
+		Stats.EquippedWeapon.GetComponent<Weapon> ().StopFire ();
 	}
 
 	IEnumerator CoolingDown (float Cooldown) 

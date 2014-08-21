@@ -9,7 +9,7 @@ public class Weapon : MonoBehaviour {
     [HideInInspector]
 	public GameObject firingPosition;
 
-	public Projectile projectile;
+	public GameObject projectile;
 
 	// Use this for initialization
 	void Start () {
@@ -21,5 +21,8 @@ public class Weapon : MonoBehaviour {
 	}
 
 	public virtual void Fire () {
+	}
+
+	public virtual void StopFire() {
 	}
 }

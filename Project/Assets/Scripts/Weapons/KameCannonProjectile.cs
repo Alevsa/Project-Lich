@@ -8,18 +8,10 @@ public class KameCannonProjectile : Projectile
 	// Use this for initialization
 	void Start () 
     {
-        kameCannon = GameObject.Find("KameCannon(Clone)").GetComponent<KameCannon>();
-        this.transform.parent = GameObject.Find("KameCannon(Clone)").transform;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.GetButtonUp("Space"))
-            Destroy(gameObject);
-
-        if (kameCannon.totalEnergy <= 0)
-            Destroy(gameObject);
-
     }
 }
