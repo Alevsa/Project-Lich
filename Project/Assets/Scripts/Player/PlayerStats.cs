@@ -10,7 +10,7 @@ public class PlayerStats : MonoBehaviour {
 	public int Lives;
 
 
-	bool invulnerable;
+	public bool invulnerable;
 
 	// Use this for initialization
 	void Start () {
@@ -29,7 +29,19 @@ public class PlayerStats : MonoBehaviour {
 		Application.Quit ();
 	}
 
-	void ApplyDamage (int damage) {
-		Health -= damage;
+	void ApplyDamage (int damage) 
+    {
+        if (!invulnerable)
+        {
+            Health -= damage;
+        }
 	}
+
+    void Invulnerable(bool invuln)
+    {
+        if (invuln)
+            invulnerable = true;
+        else
+            invulnerable = false;
+    }
 }
