@@ -68,21 +68,10 @@ public class Controls : MonoBehaviour {
 	}
 
 	void FireButton () {
-		if (!weaponOnCooldown)
-		{
-			Stats.EquippedWeapon.GetComponent<Weapon>().Fire ();
-			weaponOnCooldown = true;
-			StartCoroutine(CoolingDown (Stats.EquippedWeapon.GetComponent<Weapon>().Cooldown));
-		}
+		Stats.Fire ();
 	}
 
 	void StopFireButton() {
-		Stats.EquippedWeapon.GetComponent<Weapon> ().StopFire ();
-	}
-
-	IEnumerator CoolingDown (float Cooldown) 
-	{
-		yield return new WaitForSeconds (Cooldown);
-		weaponOnCooldown = false;
+		Stats.StopFire ();
 	}
 }

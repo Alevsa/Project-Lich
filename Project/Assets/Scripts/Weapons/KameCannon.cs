@@ -20,7 +20,10 @@ public class KameCannon : Weapon
             totalEnergy -= Time.deltaTime;
 
 		if (totalEnergy <= 0)
+		{
 			StopFire ();
+			Destroy (this.gameObject);
+		}
 
         if (kameClone == null)
             firing = false;
