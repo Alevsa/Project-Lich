@@ -4,7 +4,7 @@ using System.Collections;
 public class KameCannon : Weapon 
 {
     private GameObject kameClone;
-    public float totalEnergy = 5f;
+    public float TotalEnergy = 5f;
     private bool firing;
 
 	// Use this for initialization
@@ -17,9 +17,9 @@ public class KameCannon : Weapon
 	void Update () 
     { 
         if (firing)
-            totalEnergy -= Time.deltaTime;
+            TotalEnergy -= Time.deltaTime;
 
-		if (totalEnergy <= 0)
+		if (TotalEnergy <= 0)
 		{
 			StopFire ();
 			Destroy (this.gameObject);
@@ -31,7 +31,7 @@ public class KameCannon : Weapon
 
     public override void Fire()
     {
-        if(kameClone == null && totalEnergy > 0) 
+        if(kameClone == null && TotalEnergy > 0) 
         {
             kameClone = GameObject.Instantiate(projectile, firingPosition.transform.position, Quaternion.identity) as GameObject;
 			kameClone.transform.parent = this.transform;
