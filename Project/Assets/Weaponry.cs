@@ -10,6 +10,7 @@ public class Weaponry : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		MainWeapon = GameObject.Instantiate (MainWeapon, this.transform.position, Quaternion.identity) as GameObject;
+		TempWeapon = GameObject.Instantiate (TempWeapon, this.transform.position, Quaternion.identity) as GameObject;
 		ActiveWeapon = MainWeapon;
 	}
 	
