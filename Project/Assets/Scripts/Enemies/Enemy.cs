@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour {
 
 	[HideInInspector]
 	public Vector3 movement;
+    [HideInInspector]
+    public bool lockedOn;
 
 	// Use this for initialization
 	void Start () {

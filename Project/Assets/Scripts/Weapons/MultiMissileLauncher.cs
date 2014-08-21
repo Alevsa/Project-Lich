@@ -14,9 +14,14 @@ public class MultiMissileLauncher : Weapon
 	// Update is called once per frame
 	void Update () 
     {
+
+	}
+
+    override public void Fire()
+    {
         for (int i = 0; i < NumberOfMissiles; i++)
         {
-          Instantiate(projectile, firingPosition.transform.position, Quaternion.identity);
+            Instantiate(projectile, firingPosition.transform.position, Quaternion.identity);
         }
-	}
+    }
 }

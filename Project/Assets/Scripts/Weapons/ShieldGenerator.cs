@@ -19,7 +19,6 @@ public class ShieldGenerator : Weapon
         if (firing)
         {
             TotalEnergy -= Time.deltaTime;
-            SendMessageUpwards("Invulnerable", true);
         }
 
         if (TotalEnergy <= 0)
@@ -31,7 +30,6 @@ public class ShieldGenerator : Weapon
         if (shieldClone == null)
         {
             firing = false;
-            SendMessageUpwards("Invulnerable", false);
         }
 	}
 
@@ -49,7 +47,6 @@ public class ShieldGenerator : Weapon
     {
         if (shieldClone != null)
             shieldClone.GetComponent<Projectile>().Die();
-        SendMessageUpwards("Invulnerable", false);
         firing = false;
     }
 }

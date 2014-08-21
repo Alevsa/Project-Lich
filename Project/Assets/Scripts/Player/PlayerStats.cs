@@ -39,9 +39,6 @@ public class PlayerStats : MonoBehaviour {
 
     void Invulnerable(bool invuln)
     {
-        if (invuln)
-            invulnerable = true;
-        else
-            invulnerable = false;
+        invulnerable = invuln;
     }
 }
