@@ -41,7 +41,8 @@ public class KameCannon : Weapon
 
 	public override void StopFire() 
 	{
-		kameClone.GetComponent<Projectile> ().Die ();
+		if (kameClone != null)
+			kameClone.GetComponent<Projectile> ().Die ();
 		firing = false;
 	}
 
