@@ -6,12 +6,12 @@ public class Controls : MonoBehaviour {
 	public float speed;
 
 	private Vector3 movement;
-	private PlayerStats Stats;
+	private Weaponry weaponry;
 	private bool weaponOnCooldown;
 
 	// Use this for initialization
 	void Start () {
-		Stats = GetComponent<PlayerStats> ();
+		weaponry = GetComponent<Weaponry> ();
 	}
 	
 	// Update is called once per frame
@@ -49,6 +49,9 @@ public class Controls : MonoBehaviour {
 
 		if (Input.GetKeyUp (KeyCode.Space))
 			StopFireButton ();
+
+		if (Input.GetKeyDown (KeyCode.RightShift))
+			SwitchWeaponButton ();
 	}
 
 	void StrafeLeft () {
@@ -68,10 +71,14 @@ public class Controls : MonoBehaviour {
 	}
 
 	void FireButton () {
-		Stats.Fire ();
+		weaponry.Fire ();
 	}
 
 	void StopFireButton() {
-		Stats.StopFire ();
+		weaponry.StopFire ();
+	}
+
+	void SwitchWeaponButton() {
+		weaponry.SwitchWeapons ();
 	}
 }
