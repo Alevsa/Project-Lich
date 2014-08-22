@@ -28,12 +28,16 @@ public class Weaponry : MonoBehaviour {
 			Destroy (MainWeapon);
 			MainWeapon = GameObject.Instantiate (weapon, this.transform.position, Quaternion.identity) as GameObject;
 			MainWeapon.transform.parent = gameObject.transform;
+
+			ActiveWeapon = MainWeapon;
 		} 
 		else
 		{
 			Destroy (TempWeapon);
 			TempWeapon = GameObject.Instantiate (weapon, this.transform.position, Quaternion.identity) as GameObject;
 			TempWeapon.transform.parent = gameObject.transform;
+
+			ActiveWeapon = TempWeapon;
 		}
 	}
 
