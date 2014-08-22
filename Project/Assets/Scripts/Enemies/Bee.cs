@@ -14,6 +14,6 @@ public class Bee : Enemy {
 	
 	// Update is called once per frame
 	public override void SetDestination () {
-		movement += (Target.transform.position - transform.position).normalized * Speed + Vector3.Cross (Target.transform.position - transform.position, Vector3.forward).normalized * Mathf.Sin(Time.time * Frequency) * Magnitude * Speed;
+		movement += (((Target.transform.position - transform.position).normalized * Speed + Vector3.Cross (Target.transform.position - transform.position, Vector3.forward).normalized * Mathf.Sin(Time.time * Frequency) * Magnitude * Speed) * Time.deltaTime);
 	}
 }

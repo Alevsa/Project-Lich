@@ -32,8 +32,8 @@ public class Enemy : MonoBehaviour {
 	}
 
 	public void Move() {
-		float Length = Vector3.Distance (transform.position, movement);
-		transform.position = Vector3.Lerp (transform.position, movement, Time.deltaTime * Speed / Length);
+		//float Length = Vector3.Distance (transform.position, movement);
+		transform.position = movement;//Vector3.Lerp (transform.position, movement, Time.deltaTime * Speed / Length);
 	}
 
 	public virtual void SetDestination () {
@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour {
 	}
 
 	public void StrafeDown () {
-		movement += new Vector3 (0, -Speed, 0);
+		movement += (new Vector3 (0, -Speed, 0) * Time.deltaTime);
 	}
 
 	public void ApplyDamage (int damage) {

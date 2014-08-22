@@ -7,18 +7,4 @@ public class Lion : Enemy {
 	void Start () {
 	
 	}
-
-	public override void Update () {
-		if (Health <= 0)
-			Die ();
-		
-		GetPosition ();
-		ChooseDirection ();
-		Move ();
-	}
-
-	void ChooseDirection () {
-		StrafeDown ();
-	}
-	
 }
