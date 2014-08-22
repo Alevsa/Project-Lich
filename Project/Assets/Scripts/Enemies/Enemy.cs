@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour {
 	public float Speed;
 	public int Health;
 
+    public GameObject Explosion;
+
 	[HideInInspector]
 	public Vector3 movement;
     [HideInInspector]
@@ -41,6 +43,7 @@ public class Enemy : MonoBehaviour {
 	}
 
 	public void Die () {
+        Instantiate(Explosion, this.transform.position, Quaternion.identity);
 		Destroy (this.gameObject);
 	}
 
