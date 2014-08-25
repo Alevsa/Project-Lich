@@ -5,7 +5,11 @@ using System.Collections.Generic;
 public class EnemySpawn : MonoBehaviour {
 
 	public float Cooldown;
-	public GameObject Set;
+	public GameObject SetOne;
+	public GameObject SetTwo;
+
+	public GameObject SpawnTopLeft;
+	public GameObject SpawnTopRight;
 
 	private float TimeSince;
 
@@ -18,10 +22,24 @@ public class EnemySpawn : MonoBehaviour {
 	void Update () {
 		if (TimeSince > Cooldown)
 		{
-			Instantiate (Set, this.transform.position, Quaternion.identity);
+			if (Random.value > 0.2)
+				Instantiate (SetOne, this.transform.position + new Vector3(Random.Range (-2, 2), 0, 0), Quaternion.identity);
+			else
+				StartCoroutine(SpawnWavecutters());
 			TimeSince = 0;
 		}
 		else 
 			TimeSince += Time.deltaTime;
+	}
+
+	IEnumerator SpawnWavecutters () {
+		InvokeRepeating ("SpawnWavecutter", 0.3F, 0.3F);
+		yield return new WaitForSeconds (3F);
+		CancelInvoke ("SpawnWavecutter");
+	}
+	
+	void SpawnWavecutter() 
+    {
+			Instantiate (SetTwo, SpawnTopLeft.transform.position, Quaternion.identity);
 	}
 }

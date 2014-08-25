@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour {
 	public float Speed;
 	public int Health;
 
+	public GameObject EquippedWeapon;
+
     public GameObject Explosion;
 
 	[HideInInspector]
@@ -16,7 +18,7 @@ public class Enemy : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		EquipWeapon ();
 	}
 	
 	// Update is called once per frame
@@ -26,7 +28,18 @@ public class Enemy : MonoBehaviour {
 
 		GetPosition ();
 		SetDestination ();
-		Move ();
+		Move();
+
+		if (CheckFire ())
+			Fire ();
+	}
+
+	public virtual void EquipWeapon () {
+		if (EquippedWeapon != null) 
+		{
+			EquippedWeapon = GameObject.Instantiate (EquippedWeapon, this.transform.position, Quaternion.identity) as GameObject;
+			EquippedWeapon.transform.parent = this.transform;
+		}
 	}
 
 	public void GetPosition (){
@@ -40,6 +53,13 @@ public class Enemy : MonoBehaviour {
 
 	public virtual void SetDestination () {
 		StrafeDown ();
+	}
+
+	public virtual bool CheckFire () {
+		return false;
+	}
+
+	public virtual void Fire() {
 	}
 
 	public void Die () {

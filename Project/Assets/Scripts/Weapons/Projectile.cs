@@ -24,8 +24,7 @@ public class Projectile : MonoBehaviour {
 	}
 
 	public void Move() {
-		float Length = Vector3.Distance (transform.position, movement);
-		transform.position = Vector3.Lerp (transform.position, movement, Time.deltaTime * Speed / Length);
+		transform.position = movement;
 	}
 
 	public void Die () {
@@ -33,7 +32,11 @@ public class Projectile : MonoBehaviour {
 	}
 
 	public void StrafeUp () {
-		movement += new Vector3 (0, Speed, 0);
+		movement += (new Vector3 (0, Speed, 0) * Time.deltaTime);
+	}
+
+	public void StrafeDown () {
+		movement += (new Vector3 (0, -Speed, 0) * Time.deltaTime);
 	}
 
 	public virtual void OnTriggerEnter2D (Collider2D coll) {

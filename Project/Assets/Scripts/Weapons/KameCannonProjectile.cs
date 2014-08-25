@@ -3,7 +3,6 @@ using System.Collections;
 
 public class KameCannonProjectile : Projectile 
 {
-    private KameCannon kameCannon;
 
 	// Use this for initialization
 	void Start () 
