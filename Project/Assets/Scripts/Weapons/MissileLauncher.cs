@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MissileLauncher : Weapon {
-
+public class MissileLauncher : Weapon 
+{
+    
 	// Use this for initialization
 	void Start () {
 

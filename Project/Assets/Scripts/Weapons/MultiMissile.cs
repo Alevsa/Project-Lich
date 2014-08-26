@@ -6,12 +6,14 @@ public class MultiMissile : Projectile
     private Enemy[] enemies;
     private Enemy target;
 
-    private bool targetFound;
+    private Vector3 pointOne, pointTwo, destination;
+
+    private bool targetFound, MovedForward;
+    private float movementInX;
 
     // Use this for initialization
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -21,6 +23,10 @@ public class MultiMissile : Projectile
             FindTarget();
         if (targetFound)
             MoveTo();
+
+        if(!MovedForward)
+            MoveForward();
+
         DestroyAfterTime();
     }
 
@@ -48,11 +54,19 @@ public class MultiMissile : Projectile
             Die();
     }
 
+    void MoveForward()
+    {
+
+    }
+
     public override void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.gameObject.tag == "Enemy")
         {
-            target.lockedOn = false;
+            if (target != null)
+            {
+                target.lockedOn = false;
+            }
             coll.gameObject.SendMessage("ApplyDamage", Damage);
             Die();
         }
