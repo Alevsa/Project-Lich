@@ -6,7 +6,7 @@ public class Wavecutter : Enemy {
 	public float currentDegree;
 	public float RadiusWidth;
 
-	public GameObject Target;
+	public Vector3 Target;
 
 	private bool counterclockwise = true;
 	private float radius;
@@ -14,9 +14,9 @@ public class Wavecutter : Enemy {
 
 	// Use this for initialization
 	void Start () {
-		Target = GameObject.Find ("SpawnTopRight");
-		radius = Vector3.Distance(this.transform.position, Target.transform.position) / 2;
-		center = (Target.transform.position - this.transform.position) * 0.5F + this.transform.position;
+		Target = new Vector3 (-this.transform.position.x, this.transform.position.y, this.transform.position.z);
+		radius = Vector3.Distance(this.transform.position, Target) / 2;
+		center = (Target - this.transform.position) * 0.5F + this.transform.position;
 		currentDegree = 0;
 		EquipWeapon ();
 	}

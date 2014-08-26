@@ -4,6 +4,8 @@ using System.Collections;
 public class EnemySet : MonoBehaviour {
 
 	public float Difficulty;
+	public GameObject Enemy1;
+	public string Position;
 
 	// Use this for initialization
 	void Start () {

@@ -5,41 +5,43 @@ using System.Collections.Generic;
 public class EnemySpawn : MonoBehaviour {
 
 	public float Cooldown;
-	public GameObject SetOne;
-	public GameObject SetTwo;
 
 	public GameObject SpawnTopLeft;
 	public GameObject SpawnTopRight;
+	public GameObject SpawnerBoundTopLeft;
+	public GameObject SpawnerBoundTopRight;
+	public EnemySet[] enemySets;
 
 	private float TimeSince;
 
 	// Use this for initialization
 	void Start () {
-	
+		enemySets = this.GetComponents<EnemySet> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (TimeSince > Cooldown)
 		{
-			if (Random.value > 0.2)
-				Instantiate (SetOne, this.transform.position + new Vector3(Random.Range (-2, 2), 0, 0), Quaternion.identity);
-			else
-				StartCoroutine(SpawnWavecutters());
+			SpawnSomething();
 			TimeSince = 0;
 		}
 		else 
 			TimeSince += Time.deltaTime;
 	}
 
-	IEnumerator SpawnWavecutters () {
-		InvokeRepeating ("SpawnWavecutter", 0.3F, 0.3F);
-		yield return new WaitForSeconds (3F);
-		CancelInvoke ("SpawnWavecutter");
-	}
-	
-	void SpawnWavecutter() 
-    {
-			Instantiate (SetTwo, SpawnTopLeft.transform.position + new Vector3(0, Random.Range (-1, 3), 0), Quaternion.identity);
+	void SpawnSomething() {
+		EnemySet enemySet = enemySets [Random.Range (0, enemySets.Length)];
+
+		if (enemySet.Position == "Top")
+		{
+			Vector3 TopSpawnPoint = SpawnerBoundTopLeft.transform.position + (SpawnerBoundTopRight.transform.position - SpawnerBoundTopLeft.transform.position) * Random.value;
+			enemySet.Spawn (TopSpawnPoint);
+		} 
+		else if (enemySet.Position == "TopSide")
+		{
+			Vector3 TopSideSpawnPoint = SpawnTopLeft.transform.position;
+			enemySet.Spawn (TopSideSpawnPoint);
+		}
 	}
 }
