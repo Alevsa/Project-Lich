@@ -6,10 +6,7 @@ public class MultiMissile : Projectile
     private Enemy[] enemies;
     private Enemy target;
 
-    private Vector3 pointOne, pointTwo, destination;
-
-    private bool targetFound, MovedForward;
-    private float movementInX;
+    private bool targetFound;
 
     // Use this for initialization
     void Start()
@@ -23,9 +20,6 @@ public class MultiMissile : Projectile
             FindTarget();
         if (targetFound)
             MoveTo();
-
-        if(!MovedForward)
-            MoveForward();
 
         DestroyAfterTime();
     }
@@ -52,11 +46,6 @@ public class MultiMissile : Projectile
 
         else
             Die();
-    }
-
-    void MoveForward()
-    {
-
     }
 
     public override void OnTriggerEnter2D(Collider2D coll)
