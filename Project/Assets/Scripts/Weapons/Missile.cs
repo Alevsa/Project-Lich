@@ -14,6 +14,7 @@ public class Missile : Projectile
         GetPosition();
         StrafeUp();
         Move();
+        DestroyAfterTime();
 	}
 
     public override void OnTriggerEnter2D(Collider2D coll)

@@ -14,6 +14,7 @@ public class WavecutterCannonProjectile : Projectile {
 		GetPosition ();
 		StrafeDown ();
 		Move ();
+        DestroyAfterTime();
 
 	}
 
