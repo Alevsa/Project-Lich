@@ -15,7 +15,7 @@ public class DeathExplosion : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
-        timer += 1.0f * Time.deltaTime;
+        timer += Time.deltaTime;
         if(timer > ExplosionTime)
             Destroy(gameObject);
 	}

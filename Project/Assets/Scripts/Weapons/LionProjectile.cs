@@ -13,5 +13,6 @@ public class LionProjectile : Projectile {
 		GetPosition ();
 		StrafeUp ();
 		Move ();
+        DestroyAfterTime();
 	}
 }

@@ -6,6 +6,9 @@ public class Projectile : MonoBehaviour {
 	public int Damage;
 	public float Speed;
 
+    public float TimeTillDestroyed = 3;
+    private float timer;
+
 	[HideInInspector]
 	public Vector3 movement;
 
@@ -16,7 +19,7 @@ public class Projectile : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
-
+       
 	}
 
 	public void GetPosition () {
@@ -30,6 +33,13 @@ public class Projectile : MonoBehaviour {
 	public void Die () {
 		Destroy (this.gameObject);
 	}
+
+    public void DestroyAfterTime()
+    {
+        timer += Time.deltaTime;
+        if (timer > TimeTillDestroyed)
+            Die();
+    }
 
 	public void StrafeUp () {
 		movement += (new Vector3 (0, Speed, 0) * Time.deltaTime);
