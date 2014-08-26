@@ -41,7 +41,11 @@ public class MultiMissile : Projectile
 
     void MoveTo()
     {
-       transform.position = Vector3.MoveTowards(transform.position, target.transform.position, Speed* Time.deltaTime);
+        if (target != null)
+            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, Speed * Time.deltaTime);
+
+        else
+            Die();
     }
 
     public override void OnTriggerEnter2D(Collider2D coll)
