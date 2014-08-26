@@ -40,6 +40,6 @@ public class EnemySpawn : MonoBehaviour {
 	
 	void SpawnWavecutter() 
     {
-			Instantiate (SetTwo, SpawnTopLeft.transform.position, Quaternion.identity);
+			Instantiate (SetTwo, SpawnTopLeft.transform.position + new Vector3(0, Random.Range (-1, 3), 0), Quaternion.identity);
 	}
 }
