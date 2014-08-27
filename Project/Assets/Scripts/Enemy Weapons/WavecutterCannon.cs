@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WavecutterCannon : Weapon {
-
+public class WavecutterCannon : Weapon 
+{
 	// Use this for initialization
-	void Start () {
-	
+	void Start () 
+    {
+     
 	}
 	
 	// Update is called once per frame
@@ -13,7 +14,8 @@ public class WavecutterCannon : Weapon {
 	
 	}
 
-	public override void Fire() {
+	public override void Fire() 
+    {
 		GameObject.Instantiate (projectile, this.transform.position, Quaternion.identity);
 	}
 }
