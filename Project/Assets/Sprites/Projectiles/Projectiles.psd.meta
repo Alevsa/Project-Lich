@@ -52,9 +52,9 @@ TextureImporter:
         x: 0
         y: 0
         width: 10
-        height: 15
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Projectiles_1
       rect:
@@ -62,9 +62,9 @@ TextureImporter:
         x: 16
         y: 0
         width: 10
-        height: 15
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
