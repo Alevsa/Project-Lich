@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Missile : Projectile 
 {
+    public GameObject explosion;
+
 	// Use this for initialization
 	void Start () {
 	}
@@ -15,17 +17,12 @@ public class Missile : Projectile
         DestroyAfterTime();
 	}
 
-    public override void Die()
-    {
-        Destroy(this.gameObject);
-    }
-
     public override void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.gameObject.tag == "Enemy")
         {
             coll.gameObject.SendMessage("ApplyDamage", Damage);
-            Instantiate(ProjectileExplosion, this.transform.position, Quaternion.identity);
+            Instantiate(explosion, this.transform.position, Quaternion.identity);
             Die();
         }
     }     

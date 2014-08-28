@@ -1,10 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Projectile : MonoBehaviour 
-{
+public class Projectile : MonoBehaviour {
 
-    public GameObject ProjectileExplosion;
 	public int Damage;
 	public float Speed;
 
@@ -32,9 +30,7 @@ public class Projectile : MonoBehaviour
 		transform.position = movement;
 	}
 
-	public virtual void Die () 
-    {
-        Instantiate(ProjectileExplosion, this.transform.position, Quaternion.identity);
+	public void Die () {
 		Destroy (this.gameObject);
 	}
 
