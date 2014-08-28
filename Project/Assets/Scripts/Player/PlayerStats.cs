@@ -9,7 +9,7 @@ public class PlayerStats : MonoBehaviour {
 	public int MaxHealth;
 	public int Lives;
 
-    public GameObject DeathExplosion;
+    public GameObject DeathExplosion, damageExplosion;
 	public bool invulnerable;
 
 	// Use this for initialization
@@ -24,7 +24,8 @@ public class PlayerStats : MonoBehaviour {
 			Die ();
 	}
 
-	void Die () {
+	void Die () 
+    {
         Instantiate(DeathExplosion, this.transform.position, Quaternion.identity);
 		Destroy (this.gameObject);
 		Application.Quit ();
@@ -37,6 +38,13 @@ public class PlayerStats : MonoBehaviour {
             Health -= damage;
         }
 	}
+
+    public void SpawnExplosion(Vector3 explosionPosition)
+    {
+        if (Health > 0)
+            Instantiate(damageExplosion, explosionPosition, Quaternion.identity);
+    }
+
 
     void Invulnerable(bool invuln)
     {

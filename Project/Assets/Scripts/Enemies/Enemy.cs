@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour {
 
 	public GameObject EquippedWeapon;
 
-    public GameObject Explosion;
+    public GameObject DeathExplosion, damageExplosion;
 
 	[HideInInspector]
 	public Vector3 movement;
@@ -63,7 +63,7 @@ public class Enemy : MonoBehaviour {
 	}
 
 	public void Die () {
-        Instantiate(Explosion, this.transform.position, Quaternion.identity);
+        Instantiate(DeathExplosion, this.transform.position, Quaternion.identity);
 		Destroy (this.gameObject);
 	}
 
@@ -71,9 +71,16 @@ public class Enemy : MonoBehaviour {
 		movement += (new Vector3 (0, -Speed, 0) * Time.deltaTime);
 	}
 
-	public void ApplyDamage (int damage) {
+	public void ApplyDamage (int damage) 
+    {
 		Health -= damage;
 	}
+
+    public void SpawnExplosion(Vector3 explosionPosition)
+    {
+        if(Health > 0)
+            Instantiate(damageExplosion, explosionPosition, Quaternion.identity);
+    }
 
 	public virtual void OnTriggerEnter2D (Collider2D coll) {
 		if (coll.gameObject.tag == "Player")

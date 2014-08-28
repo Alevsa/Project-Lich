@@ -20,8 +20,10 @@ public class WavecutterCannonProjectile : Projectile {
 
 	public override void OnTriggerEnter2D (Collider2D coll)
 	{
-		if (coll.gameObject.tag == "Player") {
+		if (coll.gameObject.tag == "Player") 
+        {
 				coll.gameObject.SendMessage ("ApplyDamage", Damage);
+                coll.gameObject.SendMessage("SpawnExplosion", transform.position);
 				Die ();
 		}
 	}

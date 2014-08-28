@@ -53,6 +53,7 @@ public class Projectile : MonoBehaviour {
 		if (coll.gameObject.tag == "Enemy")
 		{
 			coll.gameObject.SendMessage ("ApplyDamage", Damage);
+            coll.gameObject.SendMessage ("SpawnExplosion", transform.position);
 			Die ();
 		}
 	}
