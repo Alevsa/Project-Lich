@@ -5,8 +5,11 @@ public class MultiMissile : Projectile
 {
     private Enemy[] enemies;
     private Enemy target;
-
     private bool targetFound;
+
+    private Vector2 currentPosition;
+    private Vector3 rotation;
+    private float xDif, yDif;
 
     // Use this for initialization
     void Start()
@@ -18,8 +21,10 @@ public class MultiMissile : Projectile
     {
         if(!targetFound)
             FindTarget();
-        if (targetFound)
-            MoveTo();
+        if (targetFound && target != null)
+            MoveTo(target.transform.position);
+        if (targetFound && target == null)
+            Die();
 
         DestroyAfterTime();
     }
@@ -39,13 +44,17 @@ public class MultiMissile : Projectile
         }
     }
 
-    void MoveTo()
+    void MoveTo(Vector2 target)
     {
-        if (target != null)
-            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, Speed * Time.deltaTime);
-
-        else
-            Die();
+        currentPosition = new Vector2(transform.position.x, transform.position.y);
+        xDif = target.x - currentPosition.x;
+        yDif = target.y - currentPosition.y;
+        
+        rotation = Vector3.zero;
+        rotation.z = Mathf.Atan(yDif/xDif) * Mathf.Rad2Deg - (xDif > 0 ? 90 : -90);
+                
+        transform.rotation = Quaternion.Euler(rotation);
+        transform.position = Vector3.MoveTowards(transform.position, target, Speed * Time.deltaTime);
     }
 
     public override void OnTriggerEnter2D(Collider2D coll)
@@ -60,5 +69,4 @@ public class MultiMissile : Projectile
             Die();
         }
     }
-
 }
