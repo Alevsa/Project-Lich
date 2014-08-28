@@ -5,6 +5,7 @@ TextureImporter:
     21300000: Projectiles
     21300002: Projectiles_0
     21300004: Projectiles_1
+    21300006: Projectiles_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -50,7 +51,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 19
         width: 10
         height: 16
       alignment: 0
@@ -60,9 +61,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 0
+        y: 19
         width: 10
         height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Projectiles_2
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 2
+        width: 12
+        height: 17
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
