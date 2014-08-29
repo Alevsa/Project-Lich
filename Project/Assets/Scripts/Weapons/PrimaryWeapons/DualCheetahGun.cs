@@ -1,19 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DualLionCannon : Weapon {
+public class DualCheetahGun : Weapon {
 
-	public GameObject secondFiringPosition;
+    private GameObject secondFiringPosition;
 
 	// Use this for initialization
 	void Start () {
-		firingPosition = GameObject.Find("WeaponSlot2");
-		secondFiringPosition = GameObject.Find("WeaponSlot3");	
+
+        firingPosition = GameObject.Find("WeaponSlot2");
+        secondFiringPosition = GameObject.Find("WeaponSlot3");	
+	
 	}
 	
 	// Update is called once per frame
-	void Update () 
-    {
+	void Update () {
+	
 	}
 
     override public void Fire()
