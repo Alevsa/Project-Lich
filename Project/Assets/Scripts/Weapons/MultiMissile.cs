@@ -66,6 +66,7 @@ public class MultiMissile : Projectile
                 target.lockedOn = false;
             }
             coll.gameObject.SendMessage("ApplyDamage", Damage);
+            coll.gameObject.SendMessage("SpawnExplosion", transform.position);
             Die();
         }
     }
