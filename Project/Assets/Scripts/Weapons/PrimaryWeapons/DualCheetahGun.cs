@@ -8,8 +8,8 @@ public class DualCheetahGun : Weapon {
 	// Use this for initialization
 	void Start () {
 
-        firingPosition = GameObject.Find("WeaponSlot2");
-        secondFiringPosition = GameObject.Find("WeaponSlot3");	
+        firingPosition = GameObject.Find("WeaponSlot4");
+        secondFiringPosition = GameObject.Find("WeaponSlot5");	
 	
 	}
 	
