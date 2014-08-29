@@ -11,6 +11,8 @@ public class AnimatedBackground : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		renderer.sortingLayerName = "Background";
+		renderer.sortingOrder = 1;
 	}
 	
 	// Update is called once per frame

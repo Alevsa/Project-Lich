@@ -45,13 +45,16 @@ public class Controls : MonoBehaviour {
 			StrafeDown ();
 
 		if (Input.GetKey (KeyCode.Space))
-			FireButton ();
+			PrimaryFireButton ();
 
 		if (Input.GetKeyUp (KeyCode.Space))
-			StopFireButton ();
+			StopPrimaryFireButton ();
 
 		if (Input.GetKeyDown (KeyCode.RightShift))
 			SwitchWeaponButton ();
+
+		if (Input.GetKeyUp (KeyCode.RightShift))
+			StopSecondaryFireButton ();
 	}
 
 	void StrafeLeft () {
@@ -70,15 +73,19 @@ public class Controls : MonoBehaviour {
 		movement += new Vector3 (0, -speed, 0);
 	}
 
-	void FireButton () {
-		weaponry.Fire ();
+	void PrimaryFireButton () {
+		weaponry.PrimaryFire ();
 	}
 
-	void StopFireButton() {
-		weaponry.StopFire ();
+	void StopPrimaryFireButton() {
+		weaponry.StopPrimaryFire ();
 	}
 
 	void SwitchWeaponButton() {
-		weaponry.SwitchWeapons ();
+		weaponry.SecondaryFire ();
+	}
+
+	void StopSecondaryFireButton() {
+		weaponry.StopSecondaryFire ();
 	}
 }

@@ -3,19 +3,16 @@ using System.Collections;
 
 public class Weaponry : MonoBehaviour {
 
-	public GameObject MainWeapon;
-	public GameObject TempWeapon;
-	public GameObject ActiveWeapon;
+	public GameObject PrimaryWeapon;
+	public GameObject SecondaryWeapon;
 
 	// Use this for initialization
 	void Start () {
-		MainWeapon = GameObject.Instantiate (MainWeapon, this.transform.position, Quaternion.identity) as GameObject;
-		MainWeapon.transform.parent = gameObject.transform;
+		PrimaryWeapon = GameObject.Instantiate (PrimaryWeapon, this.transform.position, Quaternion.identity) as GameObject;
+		PrimaryWeapon.transform.parent = gameObject.transform;
 
-		TempWeapon = GameObject.Instantiate (TempWeapon, this.transform.position, Quaternion.identity) as GameObject;
-		TempWeapon.transform.parent = gameObject.transform;
-
-		ActiveWeapon = MainWeapon;
+		SecondaryWeapon = GameObject.Instantiate (SecondaryWeapon, this.transform.position, Quaternion.identity) as GameObject;
+		SecondaryWeapon.transform.parent = gameObject.transform;
 	}
 	
 	// Update is called once per frame
@@ -24,52 +21,54 @@ public class Weaponry : MonoBehaviour {
 	}
 
 	public void ChangeWeapon (GameObject weapon) {
-		if (weapon.GetComponent<Weapon> ().Type == "Main") {
-			Destroy (MainWeapon);
-			MainWeapon = GameObject.Instantiate (weapon, this.transform.position, Quaternion.identity) as GameObject;
-			MainWeapon.transform.parent = gameObject.transform;
-
-			ActiveWeapon = MainWeapon;
-		} 
-		else
+		if (weapon.GetComponent<Weapon> ().Type == "Primary")
 		{
-			Destroy (TempWeapon);
-			TempWeapon = GameObject.Instantiate (weapon, this.transform.position, Quaternion.identity) as GameObject;
-			TempWeapon.transform.parent = gameObject.transform;
-
-			ActiveWeapon = TempWeapon;
+			Destroy (PrimaryWeapon);
+			PrimaryWeapon = GameObject.Instantiate (weapon, this.transform.position, Quaternion.identity) as GameObject;
+			PrimaryWeapon.transform.parent = gameObject.transform;
+		} 
+		else if (weapon.GetComponent<Weapon>().Type == "Secondary")
+		{
+			Destroy (SecondaryWeapon);
+			SecondaryWeapon = GameObject.Instantiate (weapon, this.transform.position, Quaternion.identity) as GameObject;
+			SecondaryWeapon.transform.parent = gameObject.transform;
 		}
 	}
 
-	public void Fire () {
-		if (ActiveWeapon != null)
+	public void PrimaryFire () {
+		if (PrimaryWeapon != null)
 		{
-			if (!ActiveWeapon.GetComponent<Weapon> ().onCooldown)
+			if (!PrimaryWeapon.GetComponent<Weapon>().onCooldown)
 			{
-				ActiveWeapon.GetComponent<Weapon> ().Fire ();
-				StartCoroutine (CoolingDown (ActiveWeapon.GetComponent<Weapon> (), ActiveWeapon.GetComponent<Weapon> ().Cooldown));
+				PrimaryWeapon.GetComponent<Weapon> ().Fire ();
+				StartCoroutine (CoolingDown (PrimaryWeapon.GetComponent<Weapon> (), PrimaryWeapon.GetComponent<Weapon> ().Cooldown));
+			}
+		}
+	}
+	
+	public void StopPrimaryFire () {
+		if (PrimaryWeapon != null)
+			PrimaryWeapon.GetComponent<Weapon> ().StopFire ();
+	}
+
+	public void SecondaryFire() {
+		if (SecondaryWeapon != null)
+		{
+			if (!SecondaryWeapon.GetComponent<Weapon>().onCooldown)
+			{
+				SecondaryWeapon.GetComponent<Weapon> ().Fire ();
+				StartCoroutine (CoolingDown (SecondaryWeapon.GetComponent<Weapon> (), SecondaryWeapon.GetComponent<Weapon> ().Cooldown));
 			}
 		} 
-		else
-			SwitchWeapons ();
 	}
-	
-	public void StopFire () {
-		if (ActiveWeapon != null)
-			ActiveWeapon.GetComponent<Weapon> ().StopFire ();
+
+	public void StopSecondaryFire () {
+		if (SecondaryWeapon != null)
+			SecondaryWeapon.GetComponent<Weapon> ().StopFire ();
 	}
-	
-	public void SwitchWeapons () {
-		if ((TempWeapon != null) && (ActiveWeapon == MainWeapon))
-		{
-			StopFire ();
-			ActiveWeapon = TempWeapon;
-		} 
-		else if ((MainWeapon != null) && (ActiveWeapon == TempWeapon))
-		{
-			StopFire ();
-			ActiveWeapon = MainWeapon;
-		}
+
+	public void UpgradeWeapon () {
+		ChangeWeapon (PrimaryWeapon.GetComponent<Weapon> ().Upgrade);
 	}
 	
 	IEnumerator CoolingDown (Weapon weapon, float Cooldown) 

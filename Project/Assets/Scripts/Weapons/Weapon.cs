@@ -7,6 +7,7 @@ public class Weapon : MonoBehaviour {
 	public string Type;
 	public float Cooldown;
 	public bool onCooldown;
+	public GameObject Upgrade;
 
     [HideInInspector]
 	public GameObject firingPosition;
