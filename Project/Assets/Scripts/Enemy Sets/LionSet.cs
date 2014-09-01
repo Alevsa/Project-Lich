@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class LionSet : EnemySet {
 
@@ -15,7 +16,6 @@ public class LionSet : EnemySet {
 	
 	// Update is called once per frame
 	void Update () {
-	
 	}
 
 	public override void Spawn (Vector3 SpawnPoint)
@@ -31,6 +31,6 @@ public class LionSet : EnemySet {
 	}
 	
 	void SpawnEnemy () {
-		Instantiate (Enemy1, spawnPoint, Quaternion.identity);
+		GameObject enemy = GameObject.Instantiate (Enemy1, spawnPoint, Quaternion.identity) as GameObject;
 	}
 }

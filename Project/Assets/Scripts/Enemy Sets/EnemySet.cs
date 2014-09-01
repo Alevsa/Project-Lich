@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class EnemySet : MonoBehaviour {
 
@@ -14,7 +15,6 @@ public class EnemySet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
 	}
 
 	public virtual void Spawn (Vector3 SpawnPoint) {
