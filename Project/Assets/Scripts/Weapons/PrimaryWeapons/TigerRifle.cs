@@ -7,8 +7,7 @@ public class TigerRifle : Weapon
 	// Use this for initialization
 	void Start () 
     {
-
-        firingPosition = GameObject.Find("WeaponSlot1");
+        firingPosition = GameObject.Find("WeaponSlot1");    
 	}
 	
 	// Update is called once per frame
