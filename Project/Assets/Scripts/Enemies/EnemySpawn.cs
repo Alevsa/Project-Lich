@@ -11,6 +11,7 @@ public class EnemySpawn : MonoBehaviour {
 	public GameObject SpawnerBoundTopLeft;
 	public GameObject SpawnerBoundTopRight;
 	public EnemySet[] enemySets;
+	public GameObject[] liveEnemies;
 
 	private float TimeSinceSpawn;
 	private int difficulty;
@@ -28,6 +29,7 @@ public class EnemySpawn : MonoBehaviour {
 
 		if (TimeSinceSpawn > Cooldown)
 		{
+			liveEnemies = GameObject.FindGameObjectsWithTag("Enemy");
 			Spawn(maxDifficulty);
 			TimeSinceSpawn = 0;
 		}
@@ -44,17 +46,21 @@ public class EnemySpawn : MonoBehaviour {
 		switch (diff) 
 		{
 			case 1:
-				SpawnLions (0.5F);
+				SpawnLions (1F / EnemyCount("Lion"));
 				break;
 
 			case 2:
-				SpawnLions (0.5F);
-				SpawnWavecutters(0.1F);
+				SpawnLions (1F / EnemyCount("Lion"));
+				
+				if (EnemyCount("Wavecutter") == 0)
+					SpawnWavecutters(0.3F);
 				break;
 
 			default:
-				SpawnLions (0.5F);
-				SpawnWavecutters(0.1F);
+				SpawnLions (1F / EnemyCount("Lion"));
+			
+				if (EnemyCount("Wavecutter") == 0)
+					SpawnWavecutters(0.3F);;
 				break;
 		}
 
@@ -72,6 +78,19 @@ public class EnemySpawn : MonoBehaviour {
 //		}
 //
 //		difficulty += enemySet.Difficulty;
+	}
+
+	int EnemyCount (string name)
+	{
+		int ret = 0;
+
+		foreach (GameObject i in liveEnemies) 
+		{
+			if (i.name == name + "(Clone)")
+				ret++;
+		}
+
+		return ret;
 	}
 
 	void SpawnLions (float chance)
