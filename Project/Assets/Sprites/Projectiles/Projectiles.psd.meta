@@ -6,6 +6,10 @@ TextureImporter:
     21300002: Projectiles_0
     21300004: Projectiles_1
     21300006: Projectiles_2
+    21300008: Projectiles_3
+    21300010: Projectiles_4
+    21300012: Projectiles_5
+    21300014: Projectiles_6
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -72,7 +76,47 @@ TextureImporter:
         serializedVersion: 2
         x: 7
         y: 2
-        width: 12
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Projectiles_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 19
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Projectiles_4
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 19
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Projectiles_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 1
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Projectiles_6
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 1
+        width: 11
         height: 17
       alignment: 0
       pivot: {x: .5, y: .5}

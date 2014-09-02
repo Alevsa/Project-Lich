@@ -11,8 +11,11 @@ public class EnemySpawn : MonoBehaviour {
 	public GameObject SpawnerBoundTopLeft;
 	public GameObject SpawnerBoundTopRight;
 	public EnemySet[] enemySets;
+	public GameObject[] liveEnemies;
 
-	private float TimeSince;
+	private float TimeSinceSpawn;
+	private int difficulty;
+	private int maxDifficulty;
 
 	// Use this for initialization
 	void Start () {
@@ -21,27 +24,90 @@ public class EnemySpawn : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (TimeSince > Cooldown)
+		if ((Time.timeSinceLevelLoad / 60) > maxDifficulty)
+			IncreaseDifficulty ();
+
+		if (TimeSinceSpawn > Cooldown)
 		{
-			SpawnSomething();
-			TimeSince = 0;
+			liveEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+			Spawn(maxDifficulty);
+			TimeSinceSpawn = 0;
 		}
 		else 
-			TimeSince += Time.deltaTime;
+			TimeSinceSpawn += Time.deltaTime;
 	}
 
-	void SpawnSomething() {
-		EnemySet enemySet = enemySets [Random.Range (0, enemySets.Length)];
+	void IncreaseDifficulty() {
+		maxDifficulty++;
+	}
 
-		if (enemySet.Position == "Top")
+	void Spawn (int diff) {
+
+		switch (diff) 
 		{
-			Vector3 TopSpawnPoint = SpawnerBoundTopLeft.transform.position + (SpawnerBoundTopRight.transform.position - SpawnerBoundTopLeft.transform.position) * Random.value;
-			enemySet.Spawn (TopSpawnPoint);
-		} 
-		else if (enemySet.Position == "TopSide")
+			case 1:
+				SpawnLions (1F / EnemyCount("Lion"));
+				break;
+
+			case 2:
+				SpawnLions (1F / EnemyCount("Lion"));
+				
+				if (EnemyCount("Wavecutter") == 0)
+					SpawnWavecutters(0.3F);
+				break;
+
+			default:
+				SpawnLions (1F / EnemyCount("Lion"));
+			
+				if (EnemyCount("Wavecutter") == 0)
+					SpawnWavecutters(0.3F);;
+				break;
+		}
+
+//		EnemySet enemySet = enemySets [Random.Range (0, enemySets.Length)];
+//
+//		if (enemySet.Position == "Top")
+//		{
+//			Vector3 TopSpawnPoint = SpawnerBoundTopLeft.transform.position + (SpawnerBoundTopRight.transform.position - SpawnerBoundTopLeft.transform.position) * Random.value;
+//			enemySet.Spawn (TopSpawnPoint);
+//		} 
+//		else if (enemySet.Position == "TopSide")
+//		{
+//			Vector3 TopSideSpawnPoint = SpawnTopLeft.transform.position;
+//			enemySet.Spawn (TopSideSpawnPoint);
+//		}
+//
+//		difficulty += enemySet.Difficulty;
+	}
+
+	int EnemyCount (string name)
+	{
+		int ret = 0;
+
+		foreach (GameObject i in liveEnemies) 
 		{
-			Vector3 TopSideSpawnPoint = SpawnTopLeft.transform.position;
-			enemySet.Spawn (TopSideSpawnPoint);
+			if (i.name == name + "(Clone)")
+				ret++;
+		}
+
+		return ret;
+	}
+
+	void SpawnLions (float chance)
+	{
+		if (chance > Random.value) 
+		{
+			Vector3 TopSpawnPoint = SpawnerBoundTopLeft.transform.position + (SpawnerBoundTopRight.transform.position - SpawnerBoundTopLeft.transform.position) * Random.value; 
+			gameObject.GetComponent<LionSet> ().Spawn (TopSpawnPoint);
+		}
+	}
+
+	void SpawnWavecutters (float chance)
+	{
+		if (chance > Random.value)
+		{
+			Vector3 TopSideSpawnPoint = SpawnTopLeft.transform.position + new Vector3(0, Random.Range (-1, 3), 0);
+			gameObject.GetComponent<WavecutterSet> ().Spawn (TopSideSpawnPoint);
 		}
 	}
 }
