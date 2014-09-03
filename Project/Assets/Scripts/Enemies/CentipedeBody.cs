@@ -15,12 +15,16 @@ public class CentipedeBody : Enemy {
 
 	public override void Update() {
 		if (Health <= 0)
-			Die ();
+			Disable ();
 
 		SetDestination ();
 		GetRotation ();
 		Rotate ();
 		Move ();
+	}
+
+	private void Disable() {
+		SendMessageUpwards ("ReduceBodyCount");
 	}
 
 	public override void Move() {

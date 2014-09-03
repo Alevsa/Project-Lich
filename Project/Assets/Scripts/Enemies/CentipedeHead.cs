@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 public class CentipedeHead : Enemy {
 
-	private int bodyPartCount;
+	public int bodyPartCount;
 	private GameObject Player;
-
+	
 	private Quaternion startRot;
 	private Quaternion targetRot;
 
@@ -17,6 +17,8 @@ public class CentipedeHead : Enemy {
 	}
 
 	public override void Update() {
+		if (Health <= 0)
+			Die ();
 
 		PickPattern ();
 		GetRotation ();
@@ -67,5 +69,22 @@ public class CentipedeHead : Enemy {
 		float rot_z = Mathf.Atan2 (direction.y, direction.x) * Mathf.Rad2Deg;
 		
 		return Quaternion.Euler (0f, 0f, rot_z - 90);
+	}
+
+	public override void OnTriggerEnter2D (Collider2D coll) {
+		if (coll.gameObject.tag == "Player")
+		{
+			coll.gameObject.SendMessage("ApplyDamage", Health);
+		}
+	}
+
+	public void ReduceBodyCount () {
+		bodyPartCount--;
+	}
+
+	public override void ApplyDamage (int damage) 
+	{
+		if (bodyPartCount == 0)
+			Health -= damage;
 	}
 }

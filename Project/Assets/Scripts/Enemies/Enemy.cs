@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour {
 	public string Name;
 	public float Speed;
 	public int Health;
+	public string Type;
 
 	public GameObject EquippedWeapon;
 
@@ -71,7 +72,7 @@ public class Enemy : MonoBehaviour {
 		movement += (new Vector3 (0, -Speed, 0) * Time.deltaTime);
 	}
 
-	public void ApplyDamage (int damage) 
+	public virtual void ApplyDamage (int damage) 
     {
 		Health -= damage;
 	}

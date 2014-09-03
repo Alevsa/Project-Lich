@@ -24,7 +24,8 @@ public class DestroyLeavingEnemies : MonoBehaviour
         {
             if (col.gameObject.tag == "Enemy")
             {
-                StartCoroutine(DestroyEnemy(col.gameObject));
+				if (col.gameObject.GetComponent<Enemy>().Type != "Boss")
+                	StartCoroutine(DestroyEnemy(col.gameObject));
             }
         }
     }
