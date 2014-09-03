@@ -46,7 +46,7 @@ public class Enemy : MonoBehaviour {
 		movement = transform.position;
 	}
 
-	public void Move() {
+	public virtual void Move() {
 		//float Length = Vector3.Distance (transform.position, movement);
 		transform.position = movement;//Vector3.Lerp (transform.position, movement, Time.deltaTime * Speed / Length);
 	}
