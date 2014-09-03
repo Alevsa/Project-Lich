@@ -5,6 +5,7 @@ public class DestroyLeavingEnemies : MonoBehaviour
 {
     public bool bottomCollider;
     public float timeTillDestroyed;
+    public float extraTime;
 
 	// Use this for initialization
 	void Start () 
@@ -23,7 +24,7 @@ public class DestroyLeavingEnemies : MonoBehaviour
         if (bottomCollider)
         {
             if (col.gameObject.tag == "Enemy")
-            {
+            {           
                 StartCoroutine(DestroyEnemy(col.gameObject));
             }
         }
