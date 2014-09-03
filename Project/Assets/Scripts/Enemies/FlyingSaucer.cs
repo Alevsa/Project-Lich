@@ -9,7 +9,7 @@ public class FlyingSaucer : Enemy
 	// Use this for initialization
 	void Start () 
     {
-        centre = GameObject.Find("Test").transform.position;
+        centre = transform.position - new Vector3(0, 1.5f, 0);
 	}
 
     void Update()
