@@ -3,7 +3,8 @@ using System.Collections;
 
 public class MultiMissileLauncher : Weapon 
 {
-    public int NumberOfMissiles;
+    private Enemy[] enemies;
+    private int numberOfMissiles;
 
 	// Use this for initialization
 	void Start () 
@@ -18,9 +19,21 @@ public class MultiMissileLauncher : Weapon
 
     override public void Fire()
     {
-        for (int i = 0; i < NumberOfMissiles; i++)
+        enemies = GameObject.FindObjectsOfType<Enemy>();
+
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            numberOfMissiles++;
+        }
+
+        if (numberOfMissiles > 5)
+            numberOfMissiles = 5;
+
+        for (int i = 0; i < numberOfMissiles; i++)
         {
             Instantiate(projectile, firingPosition.transform.position, Quaternion.identity);
         }
+
+        numberOfMissiles = 0;
     }
 }
