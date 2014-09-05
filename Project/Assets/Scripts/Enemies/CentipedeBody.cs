@@ -4,18 +4,23 @@ using System.Collections;
 public class CentipedeBody : Enemy {
 
 	public GameObject previousSection;
+	public GameObject CentiHead;
 
+	private bool disabled = false;
 	public Quaternion startRot;
 	public Quaternion targetRot;
 
 	// Use this for initialization
 	void Start () {
-	
+		CentiHead.SendMessage ("IncreaseBodyCount");
 	}
 
 	public override void Update() {
-		if (Health <= 0)
+		if ((Health <= 0) && !disabled)
 			Disable ();
+
+		if (CentiHead == null)
+			Die ();
 
 		SetDestination ();
 		GetRotation ();
@@ -24,7 +29,9 @@ public class CentipedeBody : Enemy {
 	}
 
 	private void Disable() {
-		SendMessageUpwards ("ReduceBodyCount");
+		disabled = true;
+		CentiHead.SendMessage ("ReduceBodyCount");
+		collider2D.enabled = false;
 	}
 
 	public override void Move() {

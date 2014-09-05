@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class CentipedeHead : Enemy {
 
-	public int bodyPartCount;
+	public int bodyPartCount = 0;
 	private GameObject Player;
 	
 	private Quaternion startRot;
@@ -12,7 +12,6 @@ public class CentipedeHead : Enemy {
 
 	// Use this for initialization
 	void Start () {
-		bodyPartCount = gameObject.GetComponentsInChildren<CentipedeBody> ().Length;
 		Player = GameObject.Find ("Player");
 	}
 
@@ -76,6 +75,10 @@ public class CentipedeHead : Enemy {
 		{
 			coll.gameObject.SendMessage("ApplyDamage", Health);
 		}
+	}
+
+	public void IncreaseBodyCount() {
+		bodyPartCount++;
 	}
 
 	public void ReduceBodyCount () {
