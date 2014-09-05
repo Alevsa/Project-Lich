@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour {
 	public string Name;
 	public float Speed;
 	public int Health;
+	public string Type;
 
 	public GameObject EquippedWeapon;
 
@@ -46,7 +47,7 @@ public class Enemy : MonoBehaviour {
 		movement = transform.position;
 	}
 
-	public void Move() {
+	public virtual void Move() {
 		//float Length = Vector3.Distance (transform.position, movement);
 		transform.position = movement;//Vector3.Lerp (transform.position, movement, Time.deltaTime * Speed / Length);
 	}
@@ -71,7 +72,7 @@ public class Enemy : MonoBehaviour {
 		movement += (new Vector3 (0, -Speed, 0) * Time.deltaTime);
 	}
 
-	public void ApplyDamage (int damage) 
+	public virtual void ApplyDamage (int damage) 
     {
 		Health -= damage;
 	}
