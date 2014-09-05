@@ -15,7 +15,6 @@ public class CentipedeCannon : Weapon {
 	void Update () {
 		if ((liveProjectile == null) && (liveProjectile2 == null))
 			Fire ();
-	
 	}
 
 	public override void Fire()
