@@ -5,6 +5,7 @@ public class MultiMissileLauncher : Weapon
 {
     private Enemy[] enemies;
     private int numberOfMissiles;
+    public int Ammo = 10;
 
 	// Use this for initialization
 	void Start () 
@@ -31,7 +32,11 @@ public class MultiMissileLauncher : Weapon
 
         for (int i = 0; i < numberOfMissiles; i++)
         {
-            Instantiate(projectile, firingPosition.transform.position, Quaternion.identity);
+            if (Ammo > 0)
+            {
+                Instantiate(projectile, firingPosition.transform.position, Quaternion.identity);
+                Ammo--;
+            }
         }
 
         numberOfMissiles = 0;
