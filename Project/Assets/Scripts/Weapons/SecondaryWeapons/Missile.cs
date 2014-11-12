@@ -10,7 +10,7 @@ public class Missile : Projectile
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	public override void Update () {
         GetPosition();
         StrafeUp();
         Move();

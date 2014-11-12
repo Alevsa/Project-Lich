@@ -13,12 +13,12 @@ public class Wavecutter : Enemy {
 	private Vector3 center;
 
     [HideInInspector]
-    public Animator animation;
+    public Animator thisAnimation;
 
 	// Use this for initialization
 	void Start () {
 
-        animation = GetComponent<Animator>();
+        thisAnimation = GetComponent<Animator>();
 		Target = new Vector3 (-this.transform.position.x, this.transform.position.y, this.transform.position.z);
 		radius = Vector3.Distance(this.transform.position, Target) / 2;
 		center = (Target - this.transform.position) * 0.5F + this.transform.position;
@@ -57,7 +57,7 @@ public class Wavecutter : Enemy {
 
 	public override void Fire() 
     {
-        animation.SetTrigger("Firing");
+        thisAnimation.SetTrigger("Firing");
 		EquippedWeapon.GetComponent<Weapon>().Fire ();
 	}
 }

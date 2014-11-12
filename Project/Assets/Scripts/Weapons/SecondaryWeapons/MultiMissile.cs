@@ -17,7 +17,7 @@ public class MultiMissile : Projectile
     }
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
         if(!targetFound)
             FindTarget();

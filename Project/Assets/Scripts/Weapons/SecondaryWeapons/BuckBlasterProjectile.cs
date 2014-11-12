@@ -15,15 +15,15 @@ public class BuckBlasterProjectile : Projectile
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	public override void Update () 
     {
         GetPosition();
-        StrafeUp();
+        StrafeUp1();
         Move();
         DestroyAfterTime();
 	}
 
-    public void StrafeUp()
+    public void StrafeUp1()
     {
         movement += (direction * Time.deltaTime);
     }

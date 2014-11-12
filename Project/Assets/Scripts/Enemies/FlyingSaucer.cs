@@ -15,7 +15,7 @@ public class FlyingSaucer : Enemy
         EquipWeapon();
 	}
 
-    void Update()
+    public override void Update()
     {
         Timer += Time.deltaTime;
        if (Health <= 0)

@@ -8,7 +8,7 @@ public class Explosion : Projectile
 	
 	}
 
-	void Update () 
+	public override void Update () 
     {
 	
 	}

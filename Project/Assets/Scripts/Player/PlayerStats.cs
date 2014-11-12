@@ -8,6 +8,7 @@ public class PlayerStats : MonoBehaviour {
 	public int Health;
 	public int MaxHealth;
 	public int Lives;
+	public int Score;
 
     public GameObject DeathExplosion, damageExplosion;
 	public bool invulnerable;
@@ -44,6 +45,11 @@ public class PlayerStats : MonoBehaviour {
         if (Health > 0)
             Instantiate(damageExplosion, explosionPosition, Quaternion.identity);
     }
+
+	public void AddScore(int amount)
+	{
+		Score += amount;
+	}
 
 
     void Invulnerable(bool invuln)

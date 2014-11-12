@@ -15,6 +15,6 @@ public class LionCannon : Weapon {
 
 	override public void Fire ()
 	{
-		Instantiate (projectile, firingPosition.transform.position, Quaternion.identity);
+		Instantiate (projectile, firingPosition.transform.position + new Vector3(Random.Range(-0.1F,0.1F), 0,0), Quaternion.identity);
 	}
 }

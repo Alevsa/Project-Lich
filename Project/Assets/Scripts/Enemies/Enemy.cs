@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour {
 	public float Speed;
 	public int Health;
 	public string Type;
+	public int Bounty;
 
 	public GameObject EquippedWeapon;
 
@@ -30,7 +31,7 @@ public class Enemy : MonoBehaviour {
 		GetPosition ();
 		SetDestination ();
 		Move();
-
+	
 		if (CheckFire ())
 			Fire ();
 	}
@@ -65,6 +66,7 @@ public class Enemy : MonoBehaviour {
 
 	public void Die () {
         Instantiate(DeathExplosion, this.transform.position, Quaternion.identity);
+		GameObject.Find ("Player").SendMessage ("AddScore", Bounty);
 		Destroy (this.gameObject);
 	}
 
