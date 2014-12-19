@@ -32,29 +32,33 @@ public class Controls : MonoBehaviour {
 	}
 
 	void GetInput () {
-		if (Input.GetKey (KeyCode.A))
+		if (Input.GetAxisRaw("Horizontal") < 0)
 			StrafeLeft ();
 
-		if (Input.GetKey (KeyCode.D))
+		if (Input.GetAxisRaw("Horizontal") > 0)
 			StrafeRight ();
 
-		if (Input.GetKey (KeyCode.W))
+		if (Input.GetAxisRaw("Vertical") > 0)
 			StrafeUp ();
 
-		if (Input.GetKey (KeyCode.S))
+		if (Input.GetAxisRaw("Vertical") < 0)
 			StrafeDown ();
 
-		if (Input.GetKey (KeyCode.Space))
+		if (Input.GetButton ("PrimaryFire"))
 			PrimaryFireButton ();
 
-		if (Input.GetKeyUp (KeyCode.Space))
+		if (Input.GetButtonUp ("PrimaryFire"))
 			StopPrimaryFireButton ();
 
-		if (Input.GetKeyDown (KeyCode.RightShift))
+		if (Input.GetButtonDown ("SecondaryFire"))
 			SwitchWeaponButton ();
 
-		if (Input.GetKeyUp (KeyCode.RightShift))
+		if (Input.GetButtonUp ("SecondaryFire"))
 			StopSecondaryFireButton ();
+
+		if (Input.GetButtonDown ("Pause"))
+			PressedPause ();
+
 	}
 
 	void StrafeLeft () {
@@ -87,5 +91,9 @@ public class Controls : MonoBehaviour {
 
 	void StopSecondaryFireButton() {
 		weaponry.StopSecondaryFire ();
+	}
+
+	void PressedPause() {
+		GameObject.Find ("GameController").GetComponent<GameController> ().HandlePause ();
 	}
 }
