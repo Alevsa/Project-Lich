@@ -7,12 +7,19 @@ public class Weaponry : MonoBehaviour {
 	public GameObject SecondaryWeapon;
 
 	// Use this for initialization
-	void Start () {
-		PrimaryWeapon = GameObject.Instantiate (PrimaryWeapon, this.transform.position, Quaternion.identity) as GameObject;
-		PrimaryWeapon.transform.parent = gameObject.transform;
+	void Start () 
+    {
+        if (PrimaryWeapon != null)
+        {
+            PrimaryWeapon = GameObject.Instantiate(PrimaryWeapon, this.transform.position, Quaternion.identity) as GameObject;
+            PrimaryWeapon.transform.parent = gameObject.transform;
+        }
 
-		SecondaryWeapon = GameObject.Instantiate (SecondaryWeapon, this.transform.position, Quaternion.identity) as GameObject;
-		SecondaryWeapon.transform.parent = gameObject.transform;
+        if (SecondaryWeapon != null)
+        {
+            SecondaryWeapon = GameObject.Instantiate(SecondaryWeapon, this.transform.position, Quaternion.identity) as GameObject;
+            SecondaryWeapon.transform.parent = gameObject.transform;
+        }
 	}
 	
 	// Update is called once per frame

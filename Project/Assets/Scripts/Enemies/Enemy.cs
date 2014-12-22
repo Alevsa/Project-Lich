@@ -64,9 +64,10 @@ public class Enemy : MonoBehaviour {
 	public virtual void Fire() {
 	}
 
-	public void Die () {
+	public virtual void Die () {
         Instantiate(DeathExplosion, this.transform.position, Quaternion.identity);
-		GameObject.Find ("Player").SendMessage ("AddScore", Bounty);
+        if(GameObject.Find("Player") != null)
+            GameObject.Find ("Player").SendMessage ("AddScore", Bounty);
 		Destroy (this.gameObject);
 	}
 

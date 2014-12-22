@@ -24,7 +24,8 @@ public class Controls : MonoBehaviour {
 
 	void Move () {
 		float Length = Vector3.Distance (transform.position, movement);
-		transform.position = Vector3.Lerp (transform.position, movement, Time.deltaTime * speed / Length); 
+        if(Time.deltaTime != 0)
+            transform.position = Vector3.Lerp (transform.position, movement, Time.deltaTime * speed / Length); 
 	}
 
 	void GetPosition (){
