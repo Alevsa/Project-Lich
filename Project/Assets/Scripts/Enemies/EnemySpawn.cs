@@ -47,6 +47,8 @@ public class EnemySpawn : MonoBehaviour {
 		{
 			case 1:
 				SpawnLions (1F / EnemyCount("Lion"));
+				SpawnFlyingSaucer (0.2F);
+				SpawnMeator (0.1F);
 				break;
 
 			case 2:
@@ -54,13 +56,17 @@ public class EnemySpawn : MonoBehaviour {
 				
 				if (EnemyCount("Wavecutter") == 0)
 					SpawnWavecutters(0.3F);
+				SpawnMeator(0.1F);
 				break;
 
 			default:
 				SpawnLions (1F / EnemyCount("Lion"));
 			
 				if (EnemyCount("Wavecutter") == 0)
-					SpawnWavecutters(0.3F);;
+					SpawnWavecutters(0.3F);
+
+				SpawnFlyingSaucer(0.2F);
+				SpawnMeator (0.1F);
 				break;
 		}
 
@@ -108,6 +114,24 @@ public class EnemySpawn : MonoBehaviour {
 		{
 			Vector3 TopSideSpawnPoint = SpawnTopLeft.transform.position + new Vector3(0, Random.Range (-1, 3), 0);
 			gameObject.GetComponent<WavecutterSet> ().Spawn (TopSideSpawnPoint);
+		}
+	}
+
+	void SpawnFlyingSaucer (float chance)
+	{
+		if (chance > Random.value) 
+		{
+			Vector3 TopSpawnPoint = SpawnerBoundTopLeft.transform.position + (SpawnerBoundTopRight.transform.position - SpawnerBoundTopLeft.transform.position) * Random.value; 
+			gameObject.GetComponent<FlyingSaucerSet>().Spawn(TopSpawnPoint);
+		}
+	}
+
+	void SpawnMeator (float chance)
+	{
+		if (chance > Random.value) 
+		{
+			Vector3 TopSpawnPoint = SpawnerBoundTopLeft.transform.position + (SpawnerBoundTopRight.transform.position - SpawnerBoundTopLeft.transform.position) * Random.value; 
+			gameObject.GetComponent<MeatorSet>().Spawn(TopSpawnPoint);
 		}
 	}
 }
