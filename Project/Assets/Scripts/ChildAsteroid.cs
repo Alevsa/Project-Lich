@@ -4,6 +4,7 @@ using System.Collections;
 public class ChildAsteroid : Enemy 
 {
     private float speedX, speedY;
+    public float LifeTime;
 
 	void Start () 
     {
@@ -19,6 +20,8 @@ public class ChildAsteroid : Enemy
         GetPosition();
         AsteroidFloat();
         Move();
+
+        StartCoroutine(Destroy());
     }
 
     public void AsteroidFloat()
@@ -31,35 +34,28 @@ public class ChildAsteroid : Enemy
         switch (direction)
         {
             case 1:
-                speedX = -1;
-                speedY = -1;
+                speedX = -(Random.Range(0.5f, 1.5f));
+                speedY = -(Random.Range(0.5f, 1.5f));
                 break;
             case 2:
-                speedX = -1;
-                speedY = 1;
+                speedX = -(Random.Range(0.5f, 1.5f));
+                speedY = (Random.Range(0.5f, 1.5f));
                 break;
             case 3:
-                speedX = 1;
-                speedY = -1;
+                speedX = (Random.Range(0.5f, 1.5f));
+                speedY = -(Random.Range(0.5f, 1.5f));
                 break;
             case 4:
-                speedX = 1;
-                speedY = 1;
+                speedX = (Random.Range(0.5f, 1.5f));
+                speedY = (Random.Range(0.5f, 1.5f));
                 break;
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D coll)
-    {
-        if (coll.gameObject.tag == "LevelBorder")
-        {
-            StartCoroutine(Destroy());
         }
     }
 
     IEnumerator Destroy()
     {
-        yield return new WaitForSeconds(5f);
-        Destroy(this);
+        yield return new WaitForSeconds(LifeTime);
+        Destroy(this.gameObject);
     }
+
 }
