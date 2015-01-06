@@ -1,0 +1,304 @@
+fileFormatVersion: 2
+guid: 640d7ee1d43185b4f837de66da373d66
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: PowerupSheet_0
+    21300002: PowerupSheet_1
+    21300004: PowerupSheet_2
+    21300006: PowerupSheet_3
+    21300008: PowerupSheet_4
+    21300010: PowerupSheet_5
+    21300012: PowerupSheet_6
+    21300014: PowerupSheet_7
+    21300016: PowerupSheet_8
+    21300018: PowerupSheet_9
+    21300020: PowerupSheet_10
+    21300022: PowerupSheet_11
+    21300024: PowerupSheet_12
+    21300026: PowerupSheet_13
+    21300028: PowerupSheet_14
+    21300030: PowerupSheet_15
+    21300032: PowerupSheet_16
+    21300034: PowerupSheet_17
+    21300036: PowerupSheet_18
+    21300038: PowerupSheet_19
+    21300040: PowerupSheet_20
+    21300042: PowerupSheet_21
+    21300044: PowerupSheet_22
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: Standalone
+    maxTextureSize: 1024
+    textureFormat: -3
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: PowerupSheet_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 569
+        width: 64
+        height: 65
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PowerupSheet_1
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 569
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PowerupSheet_2
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 569
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PowerupSheet_3
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 569
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PowerupSheet_4
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 568
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PowerupSheet_5
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 569
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PowerupSheet_6
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 502
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PowerupSheet_7
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 388
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PowerupSheet_8
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 352
+        width: 24
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PowerupSheet_9
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 309
+        width: 7
+        height: 49
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PowerupSheet_10
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 318
+        width: 79
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PowerupSheet_11
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 341
+        width: 15
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PowerupSheet_12
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 309
+        width: 49
+        height: 31
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PowerupSheet_13
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 262
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PowerupSheet_14
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 267
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PowerupSheet_15
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 248
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PowerupSheet_16
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 282
+        width: 15
+        height: 26
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PowerupSheet_17
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 234
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PowerupSheet_18
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 183
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PowerupSheet_19
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 128
+        width: 36
+        height: 91
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PowerupSheet_20
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 148
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PowerupSheet_21
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 116
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PowerupSheet_22
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 80
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
