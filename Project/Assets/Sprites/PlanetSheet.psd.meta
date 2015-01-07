@@ -1,12 +1,14 @@
 fileFormatVersion: 2
-guid: cf79f1abb92a70646afc3931450b33df
+guid: e8a392188a2e5334d9e916a89b4a6a48
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Planet
+    21300000: PlanetSheet_0
+    21300002: PlanetSheet_1
+    21300004: PlanetSheet_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -22,17 +24,17 @@ TextureImporter:
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
-  textureFormat: -3
+  textureFormat: -1
   maxTextureSize: 1024
   textureSettings:
     filterMode: 0
-    aniso: 1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -47,6 +49,36 @@ TextureImporter:
     textureFormat: -3
     compressionQuality: 50
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: PlanetSheet_0
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 930
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlanetSheet_1
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 931
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlanetSheet_2
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 931
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

@@ -10,6 +10,7 @@ public class EnemySpawn : MonoBehaviour {
 	public GameObject SpawnTopRight;
 	public GameObject SpawnerBoundTopLeft;
 	public GameObject SpawnerBoundTopRight;
+    public GameObject SpawnerTopMid;
 	public EnemySet[] enemySets;
 	public GameObject[] liveEnemies;
 
