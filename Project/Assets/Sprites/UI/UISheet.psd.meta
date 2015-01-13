@@ -6,6 +6,8 @@ TextureImporter:
     21300002: UISheet_1
     21300004: UISheet_2
     21300006: UISheet_2
+    21300008: UISheet_3
+    21300010: UISheet_4
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -72,6 +74,26 @@ TextureImporter:
         serializedVersion: 2
         x: 192
         y: 512
+        width: 64
+        height: 128
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: UISheet_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 352
+        width: 64
+        height: 128
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: UISheet_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 353
         width: 64
         height: 128
       alignment: 0
