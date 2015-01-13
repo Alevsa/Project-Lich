@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour {
 	public float Speed;
 	public int Health;
 	public string Type;
+	public float Difficulty;
 	public int Bounty;
 
 	public GameObject EquippedWeapon;
