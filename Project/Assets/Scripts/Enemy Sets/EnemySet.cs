@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class EnemySet : MonoBehaviour {
 
-	public float Difficulty;
+	public int Difficulty;
 	public GameObject Enemy1;
 	public string Position;
 
