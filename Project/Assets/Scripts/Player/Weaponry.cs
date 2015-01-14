@@ -30,9 +30,15 @@ public class Weaponry : MonoBehaviour {
 	public void ChangeWeapon (GameObject weapon) {
 		if (weapon.GetComponent<Weapon> ().Type == "Primary")
 		{
-			Destroy (PrimaryWeapon);
-			PrimaryWeapon = GameObject.Instantiate (weapon, this.transform.position, Quaternion.identity) as GameObject;
-			PrimaryWeapon.transform.parent = gameObject.transform;
+            if (PrimaryWeapon.GetComponent<Weapon>().Name == weapon.GetComponent<Weapon>().Name)
+                    weapon = (PrimaryWeapon.GetComponent<Weapon>().Upgrade);
+
+            if (weapon != null)
+            {
+                Destroy(PrimaryWeapon);
+                PrimaryWeapon = GameObject.Instantiate(weapon, this.transform.position, Quaternion.identity) as GameObject;
+                PrimaryWeapon.transform.parent = gameObject.transform;
+            }
 		} 
 		else if (weapon.GetComponent<Weapon>().Type == "Secondary")
 		{
