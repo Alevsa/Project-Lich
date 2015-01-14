@@ -30,7 +30,7 @@ public class Weaponry : MonoBehaviour {
 	public void ChangeWeapon (GameObject weapon) {
 		if (weapon.GetComponent<Weapon> ().Type == "Primary")
 		{
-            if (PrimaryWeapon.GetComponent<Weapon>().Name == weapon.GetComponent<Weapon>().Name)
+            if (PrimaryWeapon.GetComponent<Weapon>().Group == weapon.GetComponent<Weapon>().Group)
                     weapon = (PrimaryWeapon.GetComponent<Weapon>().Upgrade);
 
             if (weapon != null)

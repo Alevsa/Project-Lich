@@ -5,7 +5,6 @@ public class MultiMissileLauncher : Weapon
 {
     private Enemy[] enemies;
     private int numberOfMissiles;
-    public int Ammo = 10;
 
 	// Use this for initialization
 	void Start () 

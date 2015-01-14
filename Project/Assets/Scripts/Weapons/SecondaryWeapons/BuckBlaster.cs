@@ -3,7 +3,6 @@ using System.Collections;
 
 public class BuckBlaster : Weapon 
 {
-    public int Ammo;
     public GameObject Slug;
     private int slugs = 9, counter;
     private BuckBlasterProjectile slug;
