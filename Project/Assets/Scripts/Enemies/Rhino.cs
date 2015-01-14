@@ -18,6 +18,9 @@ public class Rhino : Enemy {
 	
 	// Update is called once per frame
 	public override void Update () {
+		if (Health <= 0)
+			Die ();
+
 		if (Spatial.isAcceptableDistance(maxPatternPointDistance, this.transform.position, DefaultPosition) && !isOnPattern)
 		{
 			GetPattern ();
