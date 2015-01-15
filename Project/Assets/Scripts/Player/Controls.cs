@@ -5,6 +5,8 @@ public class Controls : MonoBehaviour {
 	
 	public float speed;
 
+	public GameObject PlayerPrefab;
+	public int playerNumber = 0;
 	private Vector3 movement;
 	private Weaponry weaponry;
 	private bool weaponOnCooldown;
@@ -33,32 +35,76 @@ public class Controls : MonoBehaviour {
 	}
 
 	void GetInput () {
-		if (Input.GetAxisRaw("Horizontal") < 0)
-			StrafeLeft ();
+		if ((playerNumber == 1) || (playerNumber == 0)) 
+		{
+			if ((playerNumber == 0) && (!CheckForPlayer (1)))
+				playerNumber = 1;
 
-		if (Input.GetAxisRaw("Horizontal") > 0)
-			StrafeRight ();
+			if ((Input.GetAxisRaw ("Horizontal1") < 0) && (playerNumber == 1))
+					StrafeLeft ();
 
-		if (Input.GetAxisRaw("Vertical") > 0)
-			StrafeUp ();
+			if ((Input.GetAxisRaw ("Horizontal1") > 0) && (playerNumber == 1))
+					StrafeRight ();
 
-		if (Input.GetAxisRaw("Vertical") < 0)
-			StrafeDown ();
+			if ((Input.GetAxisRaw ("Vertical1") > 0) && (playerNumber == 1))
+					StrafeUp ();
 
-		if (Input.GetButton ("PrimaryFire"))
-			PrimaryFireButton ();
+			if ((Input.GetAxisRaw ("Vertical1") < 0) && (playerNumber == 1))
+					StrafeDown ();
 
-		if (Input.GetButtonUp ("PrimaryFire"))
-			StopPrimaryFireButton ();
+			if (Input.GetButton ("PrimaryFire1")) {
+					PrimaryFireButton ();					
+			}
 
-		if (Input.GetButtonDown ("SecondaryFire"))
-			SwitchWeaponButton ();
+			if (Input.GetButton ("PrimaryFire2"))
+				CheckForSecondPlayer ();
 
-		if (Input.GetButtonUp ("SecondaryFire"))
-			StopSecondaryFireButton ();
+			if (Input.GetButtonUp ("PrimaryFire1") && (playerNumber == 1))
+					StopPrimaryFireButton ();
 
-		if (Input.GetButtonDown ("Pause"))
-			PressedPause ();
+			if (Input.GetButtonDown ("SecondaryFire1") && (playerNumber == 1))
+					SwitchWeaponButton ();
+
+			if (Input.GetButtonUp ("SecondaryFire1") && (playerNumber == 1))
+					StopSecondaryFireButton ();
+
+			if (Input.GetButtonDown ("Pause1") && (playerNumber == 1))
+					PressedPause ();
+		}
+
+		if ((playerNumber == 2) || (playerNumber == 0))
+		{
+			if ((Input.GetAxisRaw ("Horizontal2") < 0) && (playerNumber == 2))
+				StrafeLeft ();
+			
+			if ((Input.GetAxisRaw ("Horizontal2") > 0) && (playerNumber == 2))
+				StrafeRight ();
+			
+			if ((Input.GetAxisRaw ("Vertical2") > 0) && (playerNumber == 2))
+				StrafeUp ();
+			
+			if ((Input.GetAxisRaw ("Vertical2") < 0) && (playerNumber == 2))
+				StrafeDown ();
+			
+			if (Input.GetButton ("PrimaryFire2")) {
+				PrimaryFireButton ();
+				
+				if ((playerNumber == 0) && (!CheckForPlayer (2)))
+					playerNumber = 2;
+			}
+			
+			if (Input.GetButtonUp ("PrimaryFire2") && (playerNumber == 2))
+				StopPrimaryFireButton ();
+			
+			if (Input.GetButtonDown ("SecondaryFire2") && (playerNumber == 2))
+				SwitchWeaponButton ();
+			
+			if (Input.GetButtonUp ("SecondaryFire2") && (playerNumber == 2))
+				StopSecondaryFireButton ();
+			
+			if (Input.GetButtonDown ("Pause1") && (playerNumber == 2))
+				PressedPause ();
+		}
 
 	}
 
@@ -96,5 +142,26 @@ public class Controls : MonoBehaviour {
 
 	void PressedPause() {
 		GameObject.Find ("GameController").GetComponent<GameController> ().HandlePause ();
+	}
+
+	bool CheckForPlayer (int number)
+	{
+		GameObject[] players = GameObject.FindGameObjectsWithTag ("Player");
+
+		foreach (GameObject player in players)
+		{
+			if (player.GetComponent<Controls>().playerNumber == number)
+				return true;
+		}
+
+		return false;
+	}
+
+	void CheckForSecondPlayer()
+	{
+		GameObject[] players = GameObject.FindGameObjectsWithTag ("Player");
+
+		if (players.Length != 2)
+			GameObject.Instantiate (PlayerPrefab, this.transform.position, Quaternion.identity);
 	}
 }

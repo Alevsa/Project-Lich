@@ -5,26 +5,41 @@ public class Weaponry : MonoBehaviour {
 
 	public GameObject PrimaryWeapon;
 	public GameObject SecondaryWeapon;
+	private Controls playerControls;
+	private int BelongsToPlayer;
 
 	// Use this for initialization
 	void Start () 
     {
+		playerControls = gameObject.GetComponent<Controls> ();
+		BelongsToPlayer = playerControls.playerNumber;
+
         if (PrimaryWeapon != null)
         {
             PrimaryWeapon = GameObject.Instantiate(PrimaryWeapon, this.transform.position, Quaternion.identity) as GameObject;
             PrimaryWeapon.transform.parent = gameObject.transform;
+			PrimaryWeapon.GetComponent<Weapon>().BelongsToPlayer = BelongsToPlayer;
+			PrimaryWeapon.GetComponent<Weapon>().unbound = true;
         }
 
         if (SecondaryWeapon != null)
         {
             SecondaryWeapon = GameObject.Instantiate(SecondaryWeapon, this.transform.position, Quaternion.identity) as GameObject;
             SecondaryWeapon.transform.parent = gameObject.transform;
+			SecondaryWeapon.GetComponent<Weapon>().BelongsToPlayer = BelongsToPlayer;
+			SecondaryWeapon.GetComponent<Weapon>().unbound = true;
         }
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (playerControls != null)
+			BelongsToPlayer = playerControls.playerNumber;
+
+		PrimaryWeapon.GetComponent<Weapon>().BelongsToPlayer = BelongsToPlayer;
+		PrimaryWeapon.GetComponent<Weapon>().unbound = true;
+		SecondaryWeapon.GetComponent<Weapon>().BelongsToPlayer = BelongsToPlayer;
+		SecondaryWeapon.GetComponent<Weapon>().unbound = true;
 	}
 
 	public void ChangeWeapon (GameObject weapon) {
@@ -38,6 +53,7 @@ public class Weaponry : MonoBehaviour {
                 Destroy(PrimaryWeapon);
                 PrimaryWeapon = GameObject.Instantiate(weapon, this.transform.position, Quaternion.identity) as GameObject;
                 PrimaryWeapon.transform.parent = gameObject.transform;
+				PrimaryWeapon.GetComponent<Weapon>().BelongsToPlayer = BelongsToPlayer;
             }
 		} 
 		else if (weapon.GetComponent<Weapon>().Type == "Secondary")
@@ -45,6 +61,7 @@ public class Weaponry : MonoBehaviour {
 			Destroy (SecondaryWeapon);
 			SecondaryWeapon = GameObject.Instantiate (weapon, this.transform.position, Quaternion.identity) as GameObject;
 			SecondaryWeapon.transform.parent = gameObject.transform;
+			SecondaryWeapon.GetComponent<Weapon>().BelongsToPlayer = BelongsToPlayer;
 		}
 	}
 

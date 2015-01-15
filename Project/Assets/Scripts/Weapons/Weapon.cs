@@ -10,6 +10,9 @@ public class Weapon : MonoBehaviour {
     public float Ammo;
 	public bool onCooldown;
 	public GameObject Upgrade;
+	public int BelongsToPlayer;
+
+	public bool unbound = false;
 
     [HideInInspector]
 	public GameObject firingPosition;
