@@ -23,7 +23,6 @@ public class PWeaponUI : MonoBehaviour {
     {
         playerWeaponry = GetComponentInParent<PanelController>().BoundPlayer.GetComponent<Weaponry>();
         primaryWeapon = playerWeaponry.PrimaryWeapon;
-        Debug.Log(primaryWeapon);
         primaryWeaponScript = primaryWeapon.GetComponent<Weapon>();
 
         if (playerWeaponry = null)
