@@ -5,14 +5,14 @@ using System.Collections;
 public class SWeaponUI : MonoBehaviour {
 
     private Weaponry playerWeaponry;
-    private Text thisText;
+    private Image thisImage;
     private bool errMessage;
 
     // Use this for initialization
     void Start()
     {
         playerWeaponry = GetComponentInParent<PanelController>().BoundPlayer.GetComponent<Weaponry>();
-        thisText = GetComponent<Text>();
+        thisImage = GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -28,6 +28,6 @@ public class SWeaponUI : MonoBehaviour {
         }
 
         else
-            thisText.text = playerWeaponry.SecondaryWeapon.GetComponent<Weapon>().Name;
+            thisImage.sprite = playerWeaponry.SecondaryWeapon.GetComponent<SpriteRenderer>().sprite;
     }
 }

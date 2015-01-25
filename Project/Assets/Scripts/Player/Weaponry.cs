@@ -8,11 +8,14 @@ public class Weaponry : MonoBehaviour {
 	private Controls playerControls;
 	private int BelongsToPlayer;
 
+    private PWeaponUI primaryWeaponUI;
+
 	// Use this for initialization
 	void Start () 
     {
 		playerControls = gameObject.GetComponent<Controls> ();
 		BelongsToPlayer = playerControls.playerNumber;
+        primaryWeaponUI = GameObject.Find("PrimaryWeaponUI").GetComponent<PWeaponUI>();
 
         if (PrimaryWeapon != null)
         {
@@ -46,7 +49,10 @@ public class Weaponry : MonoBehaviour {
 		if (weapon.GetComponent<Weapon> ().Type == "Primary")
 		{
             if (PrimaryWeapon.GetComponent<Weapon>().Group == weapon.GetComponent<Weapon>().Group)
-                    weapon = (PrimaryWeapon.GetComponent<Weapon>().Upgrade);
+            {
+                weapon = (PrimaryWeapon.GetComponent<Weapon>().Upgrade);
+                primaryWeaponUI.newWeapon();
+            }
 
             if (weapon != null)
             {
@@ -54,6 +60,7 @@ public class Weaponry : MonoBehaviour {
                 PrimaryWeapon = GameObject.Instantiate(weapon, this.transform.position, Quaternion.identity) as GameObject;
                 PrimaryWeapon.transform.parent = gameObject.transform;
 				PrimaryWeapon.GetComponent<Weapon>().BelongsToPlayer = BelongsToPlayer;
+                primaryWeaponUI.newWeapon();
             }
 		} 
 		else if (weapon.GetComponent<Weapon>().Type == "Secondary")
