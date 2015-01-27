@@ -11,9 +11,13 @@ public class Controls : MonoBehaviour {
 	private Weaponry weaponry;
 	private bool weaponOnCooldown;
 
+    private float h;
+    private Animator anim;
+
 	// Use this for initialization
 	void Start () {
 		weaponry = GetComponent<Weaponry> ();
+        anim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -22,6 +26,10 @@ public class Controls : MonoBehaviour {
 		GetPosition ();
 		GetInput ();
 		Move ();
+
+        h = Input.GetAxisRaw("Horizontal1");
+        anim.SetFloat("Speed", h);
+        
 	}
 
 	void Move () {
@@ -110,6 +118,7 @@ public class Controls : MonoBehaviour {
 
 	void StrafeLeft () {
 		movement += new Vector3 (-speed, 0, 0);
+
 	}
 
 	void StrafeRight () {
