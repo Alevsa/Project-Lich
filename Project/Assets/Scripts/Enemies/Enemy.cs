@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour {
 
+	public string kevin = "Hello Kevin";
 	public string Name;
 	public float Speed;
 	public int Health;
