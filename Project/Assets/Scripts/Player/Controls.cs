@@ -7,6 +7,11 @@ public class Controls : MonoBehaviour {
 
 	public GameObject PlayerPrefab;
 	public int playerNumber = 0;
+	public GameObject LeftBound;
+	public GameObject RightBound;
+	public GameObject UpBound;
+	public GameObject DownBound;
+
 	private Vector3 movement;
 	private Weaponry weaponry;
 	private bool weaponOnCooldown;
@@ -25,6 +30,7 @@ public class Controls : MonoBehaviour {
 
 		GetPosition ();
 		GetInput ();
+
 		Move ();
 
         h = Input.GetAxisRaw("Horizontal1");
@@ -33,13 +39,36 @@ public class Controls : MonoBehaviour {
 	}
 
 	void Move () {
+		Vector3 lerped;
 		float Length = Vector3.Distance (transform.position, movement);
-        if(Time.deltaTime != 0)
-            transform.position = Vector3.Lerp (transform.position, movement, Time.deltaTime * speed / Length); 
+        if (Time.deltaTime != 0)
+		{
+			lerped = Vector3.Lerp (transform.position, movement, Time.deltaTime * speed / Length);
+
+			if (!CheckForBounds (lerped))
+				transform.position = lerped; 
+		}
 	}
 
 	void GetPosition (){
 		movement = transform.position;
+	}
+
+	bool CheckForBounds(Vector3 position)
+	{
+		if (position.x > RightBound.transform.position.x)
+			return true;
+
+		if (position.x < LeftBound.transform.position.x)
+			return true;
+
+		if (position.y < DownBound.transform.position.y)
+			return true;
+
+		if (position.y > UpBound.transform.position.y)
+			return true;
+
+		return false;
 	}
 
 	void GetInput () {
