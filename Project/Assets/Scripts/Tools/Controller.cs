@@ -7,6 +7,7 @@ public class Controller : MonoBehaviour {
 	public State MenuState = State.Default;
 	public Canvas DefaultCanvas;
 	public Canvas OptionsCanvas;
+	public Canvas ExitCanvas;
 
 	// Use this for initialization
 	void Start () {
@@ -26,5 +27,10 @@ public class Controller : MonoBehaviour {
 	void OpenOptions ()
 	{
 		MenuState = State.Options;
+	}
+
+	void ExitGame()
+	{
+		Application.Quit ();
 	}
 }

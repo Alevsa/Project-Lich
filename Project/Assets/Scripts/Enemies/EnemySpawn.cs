@@ -28,7 +28,7 @@ public class EnemySpawn : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if ((Time.timeSinceLevelLoad / 60) > maxDifficulty) 
+		if ((Time.timeSinceLevelLoad / 30) > maxDifficulty) 
 		{
 			IncreaseDifficulty ();
 			difficulty = 0;
