@@ -47,7 +47,7 @@ public class ParentAsteroid : Enemy {
     public void AsteroidFloat()
     {
         //movement += (new Vector3(speedX, speedY, 0) * Time.deltaTime);
-        rigidbody2D.velocity = direction  * Speed;
+        GetComponent<Rigidbody2D>().velocity = direction  * Speed;
     }
 
     IEnumerator Destroy()

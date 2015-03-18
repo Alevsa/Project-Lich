@@ -23,7 +23,7 @@ public class FlyingSaucerProjectile : Projectile
 
     void FireAtPlayer()
     {
-        rigidbody2D.velocity = direction * Speed;
+        GetComponent<Rigidbody2D>().velocity = direction * Speed;
     }
 
     public override void OnTriggerEnter2D(Collider2D coll)

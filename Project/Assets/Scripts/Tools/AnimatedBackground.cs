@@ -11,17 +11,17 @@ public class AnimatedBackground : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		renderer.sortingLayerName = "Background";
-		renderer.sortingOrder = 1;
+		GetComponent<Renderer>().sortingLayerName = "Background";
+		GetComponent<Renderer>().sortingOrder = 1;
 	}
 	
 	// Update is called once per frame
 	void LateUpdate () {
 		offset += (AnimationRate * Time.deltaTime);
 
-		if (renderer.enabled)
+		if (GetComponent<Renderer>().enabled)
 		{
-			renderer.materials[ materialIndex ].SetTextureOffset( TextureName, offset);
+			GetComponent<Renderer>().materials[ materialIndex ].SetTextureOffset( TextureName, offset);
 		}
 	}
 }

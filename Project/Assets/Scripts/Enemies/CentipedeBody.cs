@@ -31,7 +31,7 @@ public class CentipedeBody : Enemy {
 	private void Disable() {
 		disabled = true;
 		CentiHead.SendMessage ("ReduceBodyCount");
-		collider2D.enabled = false;
+		GetComponent<Collider2D>().enabled = false;
 	}
 
 	public override void Move() {
