@@ -4,6 +4,7 @@ using System.Collections;
 public class DualLionCannon : Weapon {
 
 	private GameObject secondFiringPosition;
+	public AudioClip fireSound;
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +19,7 @@ public class DualLionCannon : Weapon {
 
     override public void Fire()
     {
+		AudioSource.PlayClipAtPoint(fireSound, transform.position);
         Instantiate(projectile, firingPosition.transform.position, Quaternion.identity);
         Instantiate(projectile, secondFiringPosition.transform.position, Quaternion.identity);
     }

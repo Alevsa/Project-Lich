@@ -3,6 +3,7 @@ using System.Collections;
 
 public class LionCannon : Weapon {
 
+	public AudioClip fireSound;
 	// Use this for initialization
 	void Start ()  {
 		unbound = true;
@@ -26,6 +27,7 @@ public class LionCannon : Weapon {
 
 	override public void Fire ()
 	{
+		AudioSource.PlayClipAtPoint(fireSound, transform.position);
 		Instantiate (projectile, firingPosition.transform.position + new Vector3(Random.Range(-0.1F,0.1F), 0,0), Quaternion.identity);
 	}
 }
