@@ -22,8 +22,10 @@ public class Planet : MonoBehaviour
     {
         float size = Random.Range(lowerSize, upperSize);
         transform.localScale = new Vector3(size, size, 0);
-
         Speed *= size;
+
+		if(size < 1f)
+			Speed += 1;
     }
 
     public virtual void Move()

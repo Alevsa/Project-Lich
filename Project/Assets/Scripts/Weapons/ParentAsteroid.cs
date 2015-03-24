@@ -38,8 +38,13 @@ public class ParentAsteroid : Enemy {
             Instantiate(childAsteroids[i], transform.position, Quaternion.identity);
 
         float dropPickup = Random.Range(0f, 100f);
-        if(dropPickup < 30f)
-            Instantiate(pickUps[Random.Range(0, pickUps.Length)], transform.position, Quaternion.identity);
+        if (dropPickup < 50f) {
+			float firstDrop = Random.Range (0f, 100f);
+			if (firstDrop < 60f)
+				Instantiate (pickUps [0], transform.position, Quaternion.identity);
+			else
+				Instantiate (pickUps [Random.Range (1, pickUps.Length)], transform.position, Quaternion.identity);
+		}
 
         base.Die();
     }
