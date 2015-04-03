@@ -17,6 +17,9 @@ public class MissileLauncher : Weapon
 
     override public void Fire()
     {
-        Instantiate(projectile, firingPosition.transform.position, Quaternion.identity);
+		if (Ammo > 0) {
+			Instantiate (projectile, firingPosition.transform.position, Quaternion.identity);
+			Ammo--;
+		}
     }
 }
