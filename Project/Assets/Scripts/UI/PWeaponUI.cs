@@ -25,7 +25,7 @@ public class PWeaponUI : MonoBehaviour {
         primaryWeapon = playerWeaponry.PrimaryWeapon;
         primaryWeaponScript = primaryWeapon.GetComponent<Weapon>();
 
-        if (playerWeaponry = null)
+        if (playerWeaponry == null)
         {
             if (errMessage == false)
             {

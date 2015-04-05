@@ -7,8 +7,7 @@ public class KameCannon : Weapon
     private bool firing;
 
 	// Use this for initialization
-	void Start () 
-    {
+	void Start () {
         firingPosition = GameObject.Find("WeaponSlot1");	
 	}
 	
@@ -41,7 +40,7 @@ public class KameCannon : Weapon
 	public override void StopFire() 
 	{
 		if (kameClone != null)
-			kameClone.GetComponent<Projectile> ().Die ();
+			Destroy(kameClone);
 		firing = false;
 	}
 
