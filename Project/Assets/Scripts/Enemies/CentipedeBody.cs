@@ -4,6 +4,7 @@ using System.Collections;
 public class CentipedeBody : Enemy {
 
 	public GameObject previousSection;
+	public Sprite DisabledSprite;
 	public GameObject CentiHead;
 
 	private bool disabled = false;
@@ -18,6 +19,9 @@ public class CentipedeBody : Enemy {
 	public override void Update() {
 		if ((Health <= 0) && !disabled)
 			Disable ();
+
+		if (disabled)
+			gameObject.GetComponent<SpriteRenderer> ().sprite = DisabledSprite;
 
 		if (CentiHead == null)
 			Die ();
