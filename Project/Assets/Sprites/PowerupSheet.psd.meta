@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 640d7ee1d43185b4f837de66da373d66
+timeCreated: 1428326069
+licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: PowerupSheet_0
@@ -43,6 +45,9 @@ TextureImporter:
   isReadable: 0
   grayScaleToAlpha: 0
   generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -1
   maxTextureSize: 1024
@@ -53,6 +58,7 @@ TextureImporter:
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
+  rGBM: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
@@ -150,36 +156,6 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PowerupSheet_8
-      rect:
-        serializedVersion: 2
-        x: 298
-        y: 352
-        width: 24
-        height: 48
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PowerupSheet_9
-      rect:
-        serializedVersion: 2
-        x: 59
-        y: 309
-        width: 7
-        height: 49
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PowerupSheet_10
-      rect:
-        serializedVersion: 2
-        x: 91
-        y: 318
-        width: 79
-        height: 32
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
     - name: PowerupSheet_11
       rect:
         serializedVersion: 2
@@ -187,26 +163,6 @@ TextureImporter:
         y: 341
         width: 15
         height: 41
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PowerupSheet_12
-      rect:
-        serializedVersion: 2
-        x: 73
-        y: 309
-        width: 49
-        height: 31
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PowerupSheet_13
-      rect:
-        serializedVersion: 2
-        x: 282
-        y: 262
-        width: 64
-        height: 64
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,51 +206,11 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PowerupSheet_18
+    - name: PowerupSheet_8
       rect:
         serializedVersion: 2
-        x: 360
-        y: 183
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PowerupSheet_19
-      rect:
-        serializedVersion: 2
-        x: 133
-        y: 128
-        width: 36
-        height: 91
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PowerupSheet_20
-      rect:
-        serializedVersion: 2
-        x: 209
-        y: 148
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PowerupSheet_21
-      rect:
-        serializedVersion: 2
-        x: 430
-        y: 116
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PowerupSheet_22
-      rect:
-        serializedVersion: 2
-        x: 301
-        y: 80
+        x: 450
+        y: 570
         width: 64
         height: 64
       alignment: 0
@@ -302,3 +218,5 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 
