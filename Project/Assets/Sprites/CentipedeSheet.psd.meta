@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 2c995dcb38a7f754789ae070ad0627c8
+timeCreated: 1428437201
+licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: CentipedeSheet_0
@@ -24,6 +26,9 @@ TextureImporter:
   isReadable: 0
   grayScaleToAlpha: 0
   generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -1
   maxTextureSize: 1024
@@ -34,6 +39,7 @@ TextureImporter:
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
+  rGBM: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
@@ -55,7 +61,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 20
-        y: 730
+        y: 734
         width: 92
         height: 97
       alignment: 0
@@ -65,7 +71,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 135
-        y: 744
+        y: 752
         width: 64
         height: 65
       alignment: 0
@@ -85,7 +91,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 262
-        y: 903
+        y: 905
         width: 64
         height: 64
       alignment: 0
@@ -93,3 +99,5 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 
