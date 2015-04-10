@@ -56,6 +56,9 @@ public class Projectile : MonoBehaviour {
             coll.gameObject.SendMessage ("SpawnExplosion", transform.position);
 			Die ();
 		}
+
+		if(coll.gameObject.tag == "Shield")
+			coll.gameObject.SendMessage ("SpawnExplosion", transform.position);
 	}
 
 }

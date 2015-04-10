@@ -9,6 +9,7 @@ public class Weaponry : MonoBehaviour {
 	private int BelongsToPlayer;
 
     private PWeaponUI primaryWeaponUI;
+	private GameObject sWeapon;
 
 	// Use this for initialization
 	void Start () 

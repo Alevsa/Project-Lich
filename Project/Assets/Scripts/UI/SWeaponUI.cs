@@ -18,16 +18,22 @@ public class SWeaponUI : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (playerWeaponry == null)
-        {
-            if (errMessage == false)
-            {
-                Debug.LogError("No Weapon");
-                errMessage = true;
-            }
-        }
-
-        else
-            thisImage.sprite = playerWeaponry.SecondaryWeapon.GetComponent<SpriteRenderer>().sprite;
+        if (playerWeaponry == null) 
+		{
+			if (errMessage == false) {
+				Debug.LogError ("No Weapon");
+				errMessage = true;
+			}
+		} 
+		else 
+		{
+			if(playerWeaponry.SecondaryWeapon.GetComponent<Weapon>().Ammo <=0)
+				thisImage.enabled = false;
+			else
+			{
+				thisImage.enabled = true;
+				thisImage.sprite = playerWeaponry.SecondaryWeapon.GetComponent<SpriteRenderer> ().sprite;
+			}
+		}
     }
 }

@@ -4,13 +4,12 @@ using System.Collections;
 public class ShieldGenerator : Weapon
 {
     private GameObject shieldClone;
-    public float TotalEnergy = 5f;
     private bool firing;
 
 	// Use this for initialization
 	void Start ()
     {
-        firingPosition = GameObject.Find("WeaponSlot1");
+        firingPosition = GameObject.Find("WeaponSlot8");
 	}
 	
 	// Update is called once per frame
@@ -18,10 +17,10 @@ public class ShieldGenerator : Weapon
     {
         if (firing)
         {
-            TotalEnergy -= Time.deltaTime;
+            Ammo -= Time.deltaTime;
         }
 
-        if (TotalEnergy <= 0)
+        if (Ammo <= 0)
         {
             StopFire();
             Destroy(this.gameObject);
@@ -35,7 +34,7 @@ public class ShieldGenerator : Weapon
 
     public override void Fire()
     {
-        if (shieldClone == null && TotalEnergy > 0)
+        if (shieldClone == null && Ammo > 0)
         {
             shieldClone = GameObject.Instantiate(projectile, firingPosition.transform.position, Quaternion.identity) as GameObject;
             shieldClone.transform.parent = this.transform;
