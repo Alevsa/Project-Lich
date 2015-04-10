@@ -10,24 +10,45 @@ public class MultiMissile : Projectile
     private Vector2 currentPosition;
     private Vector3 rotation;
     private float xDif, yDif;
+	private bool fell;
+	private float[] direction;
+	private float timer;
+	private float fallSpeed;
+
+	private ParticleSystem stream;
 
     // Use this for initialization
     void Start()
-    {
+	{
+		fallSpeed = 4f;
+		stream = GetComponentInChildren<ParticleSystem> ();
     }
 
     // Update is called once per frame
     public override void Update()
     {
-        if(!targetFound)
-            FindTarget();
-        if (targetFound && target != null)
-            MoveTo(target.transform.position);
-        if (targetFound && target == null)
-            Die();
+		timer += Time.deltaTime;
+		if (timer < 0.4f) 
+			transform.position = Vector3.MoveTowards (transform.position, transform.position - new Vector3 (direction[0], direction[1]), fallSpeed * Time.deltaTime);
+		else
+		{
+			stream.startSpeed = 20;
+			stream.startSize = 1;
+        	if(!targetFound)
+            	FindTarget();
+        	if (targetFound && target != null)
+            	MoveTo(target.transform.position);
+        	if (targetFound && target == null)
+            	Die();
 
-        DestroyAfterTime();
+        	DestroyAfterTime();
+		}
     }
+
+	private void fallDirection(float[] direction)
+	{
+		this.direction = direction;
+	}
 
     void FindTarget()
     {
