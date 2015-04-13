@@ -3,26 +3,21 @@ using System.Collections;
 
 public class SprayEnemy : Enemy {
 
-	public float yDisplace, timeBeforeMove;
-	private float timer;
+	public float timeBeforeMove;
+	private float timer, yDisplace;
 	private Vector3 moveLoc;
 	private bool notFired;
 	private Spinner spinner;
+	private GameObject bounds;
 	// Use this for initialization
 	void Start () {
-		Spinner = GetComponentInChildren<Spinner> ();
+		spinner = GetComponentInChildren<Spinner> ();
+		bounds = GameObject.Find ("PlayerBoundUp");
 		moveInfrontPlayer ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		timer += Time.deltaTime;
-		
-		if (timer > timeBeforeMove) 
-		{
-			moveInfrontPlayer ();
-			timer = 0f;
-		}
 		
 		if(moveLoc != transform.position)
 			transform.position = Vector3.MoveTowards (transform.position, moveLoc, Speed * Time.deltaTime);
@@ -31,10 +26,13 @@ public class SprayEnemy : Enemy {
 			sprayFire ();
 	}
 	
-	private void moveInfrontPlayer()
+	public void moveInfrontPlayer()
 	{
+		yDisplace = Random.Range (-2, -8);
 		Vector3 playerPos = GameObject.Find("Player").transform.position;
 		moveLoc = playerPos - new Vector3 (0, yDisplace);
+		if (moveLoc.y > bounds.transform.position.y)
+			moveLoc.y = bounds.transform.position.y - 2;
 		notFired = true;
 	}
 	
