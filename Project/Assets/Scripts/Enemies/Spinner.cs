@@ -3,8 +3,7 @@ using System.Collections;
 
 public class Spinner : MonoBehaviour {
 
-	public GameObject bullet;
-	public int amountOfBullets;
+	public GameObject[] bullet;
 	public float baseRotSpeed, speedToFire, incSpeed;
 	private SprayEnemy sEnemy;
 	private float speed;
@@ -22,7 +21,7 @@ public class Spinner : MonoBehaviour {
 		if (firing)
 			speed += (Time.deltaTime * incSpeed);
 		if (speed > speedToFire)
-			StartCoroutine(fire ());
+			fire ();
 		if (!firing && (speed > baseRotSpeed))
 			speed -= (Time.deltaTime * incSpeed);
 		if (speed < baseRotSpeed && !moving)
@@ -37,14 +36,11 @@ public class Spinner : MonoBehaviour {
 		firing = true;
 		moving = false;
 	}
-	
-	private IEnumerator fire()
+
+	private void fire()
 	{
 		firing = false;
-		for (int i = 0; i < amountOfBullets; i++) 
-		{
-			GameObject bul = Instantiate (bullet, transform.position, transform.rotation) as GameObject;
-			yield return new WaitForSeconds(0.04f);
-		}
+		for (int i = 0; i < bullet.Length; i++) 
+			Instantiate (bullet[i], transform.position, transform.rotation);
 	}
 }

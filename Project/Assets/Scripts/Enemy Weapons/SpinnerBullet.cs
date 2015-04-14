@@ -3,9 +3,10 @@ using System.Collections;
 
 public class SpinnerBullet : Projectile {
 
+	public Vector3 direction;
 	// Use this for initialization
 	void Start () {
-		Debug.Log (transform.position);
+
 	}
 	
 	// Update is called once per frame
@@ -17,7 +18,7 @@ public class SpinnerBullet : Projectile {
 
 	private void move()
 	{
-		GetComponent<Rigidbody2D> ().velocity = transform.position * Speed;
+		GetComponent<Rigidbody2D> ().velocity = direction * Speed;
 	}
 
 	public override void OnTriggerEnter2D(Collider2D coll)
