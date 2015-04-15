@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 7e10401d5b7f5f647aa834cc3a03c118
+timeCreated: 1429130963
+licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: JellyfishSheet_0
@@ -23,8 +25,11 @@ TextureImporter:
   isReadable: 0
   grayScaleToAlpha: 0
   generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -3
   maxTextureSize: 1024
   textureSettings:
     filterMode: 0
@@ -33,6 +38,7 @@ TextureImporter:
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
+  rGBM: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
@@ -63,9 +69,9 @@ TextureImporter:
     - name: JellyfishSheet_1
       rect:
         serializedVersion: 2
-        x: 206
-        y: 909
-        width: 64
+        x: 83
+        y: 914
+        width: 63
         height: 77
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -73,12 +79,14 @@ TextureImporter:
     - name: JellyfishSheet_2
       rect:
         serializedVersion: 2
-        x: 398
-        y: 909
-        width: 64
-        height: 77
+        x: 157
+        y: 915
+        width: 68
+        height: 76
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 
