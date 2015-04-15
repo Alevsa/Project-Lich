@@ -43,7 +43,7 @@ public class ParentAsteroid : MonoBehaviour {
             Instantiate(childAsteroids[i], transform.position, Quaternion.identity);
 
         float dropPickup = Random.Range(0f, 100f);
-        if (dropPickup < 50f) {
+        if (dropPickup < 75f) {
 			float firstDrop = Random.Range (0f, 100f);
 			if (firstDrop < 60f)
 				Instantiate (pickUps [0], transform.position, Quaternion.identity);
