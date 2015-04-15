@@ -39,7 +39,7 @@ public class ParentAsteroid : MonoBehaviour {
 
     public void Die()
     {
-        for (int i = 0; i < Random.Range(2, 6); i++)
+        for (int i = 0; i < Random.Range(2, 4); i++)
             Instantiate(childAsteroids[i], transform.position, Quaternion.identity);
 
         float dropPickup = Random.Range(0f, 100f);

@@ -32,7 +32,6 @@ public class EnemySpawn : MonoBehaviour {
 		{
 			IncreaseDifficulty ();
 			difficulty = 0;
-			Debug.Log (maxDifficulty);
 		}
 
 		if (TimeSinceSpawn > Cooldown)

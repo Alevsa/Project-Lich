@@ -25,10 +25,9 @@ public class Wavecutter : Enemy {
 		currentDegree = 0;
 		EquipWeapon ();
 	}
-	
-	// Update is called once per frame
+
 	public override void SetDestination () {
-		if (Target != null)
+		if (Target !=	 null)
 		{
 			if (currentDegree >= Mathf.PI)
 				counterclockwise = false;

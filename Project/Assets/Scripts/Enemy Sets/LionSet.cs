@@ -31,6 +31,6 @@ public class LionSet : EnemySet {
 	}
 	
 	void SpawnEnemy () {
-		GameObject enemy = GameObject.Instantiate (Enemy1, spawnPoint, Quaternion.identity) as GameObject;
+		Instantiate (Enemy1, spawnPoint, Quaternion.identity);
 	}
 }

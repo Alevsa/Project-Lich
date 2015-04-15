@@ -17,7 +17,9 @@ public class SprayEnemy : Enemy {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	public override void Update () {
+		if (Health <= 0)
+			Die ();
 		
 		if(moveLoc != transform.position)
 			transform.position = Vector3.MoveTowards (transform.position, moveLoc, Speed * Time.deltaTime);
