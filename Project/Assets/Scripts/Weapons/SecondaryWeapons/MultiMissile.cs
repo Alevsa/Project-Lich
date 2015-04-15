@@ -32,8 +32,8 @@ public class MultiMissile : Projectile
 			transform.position = Vector3.MoveTowards (transform.position, transform.position - new Vector3 (direction[0], direction[1]), fallSpeed * Time.deltaTime);
 		else
 		{
-			stream.startSpeed = 5f;
-			stream.startSize = 0.6f;
+			stream.startSpeed = 6f;
+			stream.startSize = 0.4f;
         	if(!targetFound)
             	FindTarget();
         	if (targetFound && target != null)
