@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 02c35635a6da73346870b6c02de53ad3
-timeCreated: 1430334588
+timeCreated: 1430335318
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -15,6 +15,7 @@ TextureImporter:
     21300016: AsteroidSheet0_7
     21300018: AsteroidSheet0_8
     21300020: AsteroidSheet0_9
+    21300022: AsteroidSheet0_10
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -157,6 +158,16 @@ TextureImporter:
         y: 0
         width: 145
         height: 55
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: AsteroidSheet0_10
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 9
+        width: 66
+        height: 52
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
