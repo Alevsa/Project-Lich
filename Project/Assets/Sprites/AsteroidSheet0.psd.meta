@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 02c35635a6da73346870b6c02de53ad3
-timeCreated: 1430251400
+timeCreated: 1430334588
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -63,100 +63,100 @@ TextureImporter:
     - name: AsteroidSheet0_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 68
-        width: 70
-        height: 60
+        x: 184
+        y: 120
+        width: 154
+        height: 131
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: AsteroidSheet0_1
       rect:
         serializedVersion: 2
-        x: 70
-        y: 64
-        width: 49
-        height: 58
+        x: 387
+        y: 121
+        width: 110
+        height: 127
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: AsteroidSheet0_2
       rect:
         serializedVersion: 2
-        x: 8
-        y: 46
-        width: 15
-        height: 15
+        x: 67
+        y: 64
+        width: 33
+        height: 36
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: AsteroidSheet0_3
       rect:
         serializedVersion: 2
-        x: 30
-        y: 35
-        width: 31
-        height: 24
+        x: 210
+        y: 60
+        width: 55
+        height: 40
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: AsteroidSheet0_4
       rect:
         serializedVersion: 2
-        x: 63
-        y: 46
-        width: 25
-        height: 18
+        x: 340
+        y: 70
+        width: 55
+        height: 43
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: AsteroidSheet0_5
       rect:
         serializedVersion: 2
-        x: 101
-        y: 2
-        width: 26
-        height: 56
+        x: 434
+        y: 0
+        width: 55
+        height: 112
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: AsteroidSheet0_6
       rect:
         serializedVersion: 2
-        x: 1
-        y: 32
-        width: 11
-        height: 16
+        x: 52
+        y: 6
+        width: 23
+        height: 31
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: AsteroidSheet0_7
       rect:
         serializedVersion: 2
-        x: 15
-        y: 32
-        width: 16
-        height: 13
+        x: 96
+        y: 9
+        width: 33
+        height: 27
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: AsteroidSheet0_8
       rect:
         serializedVersion: 2
-        x: 4
-        y: 2
-        width: 25
-        height: 29
+        x: 5
+        y: 56
+        width: 54
+        height: 61
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: AsteroidSheet0_9
       rect:
         serializedVersion: 2
-        x: 35
-        y: 7
-        width: 60
-        height: 23
+        x: 258
+        y: 0
+        width: 145
+        height: 55
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
