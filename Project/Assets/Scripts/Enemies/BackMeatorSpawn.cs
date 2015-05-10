@@ -22,7 +22,7 @@ public class BackMeatorSpawn : MonoBehaviour {
 		if (timeSinceLastCheck > Cooldown) {
 			if (isSpawning())
 			{
-				int j = UnityEngine.Random.Range(0, 2);
+				int j = UnityEngine.Random.Range(0, 11);
 
 				GameObject.Instantiate (Meators[j], this.transform.position + new Vector3 (UnityEngine.Random.Range (-8F, 8F), 0, 0), Quaternion.identity);
 				timeSinceLastSpawn = 0;
