@@ -5,10 +5,12 @@ using Game;
 public class GameController : MonoBehaviour {
 
 	public State gameState = State.Running;
+    private GameObject menu;
 
 	// Use this for initialization
-	void Start () {
-	
+	void Start () 
+    {
+        menu = GameObject.Find("Menu");
 	}
 	
 	// Update is called once per frame
