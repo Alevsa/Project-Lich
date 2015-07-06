@@ -13,9 +13,13 @@ public class PlayerStats : MonoBehaviour {
     public GameObject DeathExplosion, damageExplosion;
 	public bool invulnerable;
 
-	// Use this for initialization
-	void Start () {
+    private GameObject menu;
 
+	// Use this for initialization
+	void Start () 
+    {
+        menu = GameObject.Find("Menu");
+        menu.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -29,7 +33,8 @@ public class PlayerStats : MonoBehaviour {
     {
         Instantiate(DeathExplosion, this.transform.position, Quaternion.identity);
 		Destroy (this.gameObject);
-		Application.Quit ();
+        GameObject.Find("Fader").GetComponent<FadeOut>().fadeOutScene();
+        menu.SetActive(true);
 	}
 
 	void ApplyDamage (int damage) 

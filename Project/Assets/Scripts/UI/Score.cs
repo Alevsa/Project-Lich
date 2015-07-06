@@ -19,7 +19,6 @@ public class Score : MonoBehaviour {
 		if (playerStats == null)
             if(errMessage == false)
             {
-				Debug.LogError ("No Stats");
 				errMessage = true;
             }
 

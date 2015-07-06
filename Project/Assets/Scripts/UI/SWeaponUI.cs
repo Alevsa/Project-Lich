@@ -21,7 +21,6 @@ public class SWeaponUI : MonoBehaviour {
         if (playerWeaponry == null) 
 		{
 			if (errMessage == false) {
-				Debug.LogError ("No Weapon");
 				errMessage = true;
 			}
 		} 
