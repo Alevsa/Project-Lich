@@ -53,4 +53,9 @@ public class TeleGun : MonoBehaviour {
 		TeleProjectile = (GameObject)Instantiate (Projectile, this.transform.position, Quaternion.identity);
 		TeleProjectile.GetComponent<Telegunprojectile> ().SetTarget (Player.transform.position);
 	}
+
+	public void DestroyProjectile()
+	{
+		Destroy (TeleProjectile);
+	}
 }

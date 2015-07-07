@@ -13,4 +13,13 @@ public class Hummingbird : Enemy {
 		if (Health <= 0)
 			Die ();
 	}
+
+	public override void Die() {
+		GetComponent<TeleGun> ().DestroyProjectile ();
+
+		Instantiate(DeathExplosion, this.transform.position, Quaternion.identity);
+		if(GameObject.Find("Player") != null)
+			GameObject.Find ("Player").SendMessage ("AddScore", Bounty);
+		Destroy (this.gameObject);
+	}
 }
