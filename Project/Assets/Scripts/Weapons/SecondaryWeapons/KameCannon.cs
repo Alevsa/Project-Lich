@@ -13,9 +13,11 @@ public class KameCannon : Weapon
 	
 	// Update is called once per frame
 	void Update () 
-    { 
+    {
         if (firing)
+        {
             Ammo -= Time.deltaTime;
+        }
 
 		if (Ammo <= 0)
 		{
@@ -24,7 +26,10 @@ public class KameCannon : Weapon
 		}
 
         if (kameClone == null)
+        {
             firing = false;
+            GetComponent<AudioSource>().Stop();
+        }
 	}
 
     public override void Fire()
@@ -34,6 +39,7 @@ public class KameCannon : Weapon
             kameClone = GameObject.Instantiate(projectile, firingPosition.transform.position, Quaternion.identity) as GameObject;
 			kameClone.transform.parent = this.transform;
             firing = true;
+            GetComponent<AudioSource>().Play();
         }
     }
 

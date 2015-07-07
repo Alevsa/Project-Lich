@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour {
 
     public GameObject DeathExplosion, damageExplosion;
 
+    public AudioClip explosionClip;
+
 	[HideInInspector]
 	public Vector3 movement;
     [HideInInspector]
@@ -25,6 +27,7 @@ public class Enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	public virtual void Update () {
+
 		if (Health <= 0)
 			Die ();
 
@@ -68,7 +71,8 @@ public class Enemy : MonoBehaviour {
         Instantiate(DeathExplosion, this.transform.position, Quaternion.identity);
         if(GameObject.Find("Player") != null)
             GameObject.Find ("Player").SendMessage ("AddScore", Bounty);
-		Destroy (this.gameObject);
+        Destroy(gameObject);
+
 	}
 
 	public void StrafeDown () {

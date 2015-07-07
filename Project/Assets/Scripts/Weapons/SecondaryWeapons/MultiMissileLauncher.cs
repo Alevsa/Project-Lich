@@ -48,6 +48,7 @@ public class MultiMissileLauncher : Weapon
 				GameObject projClone = Instantiate(projectile, firingPosition.transform.position, Quaternion.identity) as GameObject;
 				projClone.SendMessage("fallDirection", direction[i]);
 				Ammo--;
+                GetComponent<AudioSource>().Play();
 			}
 		}
 

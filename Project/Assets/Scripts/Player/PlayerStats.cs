@@ -12,7 +12,7 @@ public class PlayerStats : MonoBehaviour {
 
     public GameObject DeathExplosion, damageExplosion;
 	public bool invulnerable;
-
+    public AudioClip explosionClip;
     private GameObject menu;
 
 	// Use this for initialization
@@ -35,6 +35,8 @@ public class PlayerStats : MonoBehaviour {
 		Destroy (this.gameObject);
         GameObject.Find("Fader").GetComponent<FadeOut>().fadeOutScene();
         menu.SetActive(true);
+        menu.GetComponent<AudioSource>().enabled = true;
+        GameObject.Find("Music").SetActive(false);
 	}
 
 	void ApplyDamage (int damage) 
