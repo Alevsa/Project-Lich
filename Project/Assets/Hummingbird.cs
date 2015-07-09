@@ -20,6 +20,7 @@ public class Hummingbird : Enemy {
 		Instantiate(DeathExplosion, this.transform.position, Quaternion.identity);
 		if(GameObject.Find("Player") != null)
 			GameObject.Find ("Player").SendMessage ("AddScore", Bounty);
+        AudioSource.PlayClipAtPoint(explosionClip, transform.position);
 		Destroy (this.gameObject);
 	}
 }

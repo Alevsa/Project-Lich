@@ -36,6 +36,7 @@ public class PlayerStats : MonoBehaviour {
         GameObject.Find("Fader").GetComponent<FadeOut>().fadeOutScene();
         menu.SetActive(true);
         menu.GetComponent<AudioSource>().enabled = true;
+        AudioSource.PlayClipAtPoint(explosionClip, transform.position);
         GameObject.Find("Music").SetActive(false);
 	}
 
