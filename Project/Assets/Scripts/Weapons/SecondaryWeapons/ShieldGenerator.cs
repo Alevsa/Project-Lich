@@ -23,7 +23,6 @@ public class ShieldGenerator : Weapon
         if (Ammo <= 0)
         {
             StopFire();
-            Destroy(this.gameObject);
         }
 
         if (shieldClone == null)
