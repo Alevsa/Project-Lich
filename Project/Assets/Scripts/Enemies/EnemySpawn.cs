@@ -72,7 +72,7 @@ public class EnemySpawn : MonoBehaviour {
 			ret = SpawnerBoundTopLeft.transform.position + (SpawnerBoundTopRight.transform.position - SpawnerBoundTopLeft.transform.position) * UnityEngine.Random.value;
 
 		if (set.Position == "TopSide")
-			ret = SpawnTopLeft.transform.position + new Vector3(0, UnityEngine.Random.Range (-1F, 3F), 0);
+			ret = SpawnTopLeft.transform.position + new Vector3(0, UnityEngine.Random.Range (-1F, 1F), 0);
 
 		if (set.Position == "BossTop")
 			ret = new Vector3 (0, 12, 0);
